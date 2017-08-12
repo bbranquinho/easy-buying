@@ -8,12 +8,12 @@ services:
      - POSTGRES_DB=easy_buying
      - POSTGRES_USER=easy
      - POSTGRES_PASSWORD=buying
-     - MAX_CONNECTIONS=300
+     - MAX_CONNECTIONS=100
  stubby4j:
    image: sandokandias/stubby4j-docker
    ports:
-     - "8883:8883"
+     - "8882:8882"
    environment:
-     STUBBY_PORT: 8883
+     STUBBY_PORT: 8882
    volumes:
      - ./src/test/resources/stubby4j/stubby.yml:/usr/local/stubby.yml
