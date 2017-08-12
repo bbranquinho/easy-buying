@@ -21,4 +21,9 @@ public class Application {
         return "{}";
     }
 
+    @GetMapping(path = "oi2", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String oi2() {
+        return "{\"id\":2}";
+    }
+
 }
