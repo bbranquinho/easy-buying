@@ -1,0 +1,6 @@
+:source-highlighter: highlightjs
+= Easy Buying
+:revnumber: {project-version}
+:example-caption!:
+
+Este documento é responsável por realizar a documentação dos serviços da aplicação "Easy Buying".
