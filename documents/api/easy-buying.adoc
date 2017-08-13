@@ -3,7 +3,7 @@
 :revnumber: {version}
 :example-caption!:
 
-Este documento é responsável por realizar a documentação dos serviços da aplicação "Easy Buying".
+Especificação da API da aplicação "Easy Buying".
 
 == Buscar os Usuários
 
@@ -17,3 +17,6 @@ include::{snippets}/find-all_success/http-request.adoc[]
 
 Resposta de Sucesso:
 include::{snippets}/find-all_success/http-response.adoc[]
+
+Campos da Resposta:
+include::{snippets}/find-all_success/response-fields.adoc[]

@@ -9,6 +9,9 @@ import org.wpattern.test.easy.buying.utils.BaseTest;
 
 import java.util.List;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 public class UserRepositoryTest extends BaseTest {
 
     private final Logger LOGGER = Logger.getLogger(this.getClass());
@@ -20,7 +23,10 @@ public class UserRepositoryTest extends BaseTest {
     public void findAll_success() {
         List<UserEntity> users = userRepository.findAll();
 
-        LOGGER.info(users);
+        LOGGER.debug(users);
+
+        assertNotNull(users);
+        assertTrue(users.size() > 0);
     }
 
 }

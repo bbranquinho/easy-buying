@@ -64,6 +64,13 @@
             <version>${springfox.swagger.ui.version}</version>
         </dependency>
 
+        <!-- JUNIT -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
         <!-- SPRING BOOT TEST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

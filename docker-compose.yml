@@ -16,4 +16,4 @@ services:
    environment:
      STUBBY_PORT: 8882
    volumes:
-     - ./src/test/resources/stubby4j/stubby.yml:/usr/local/stubby.yml
+     - ./documents/stubby4j/stubby.yml:/usr/local/stubby.yml
