@@ -1,0 +1,19 @@
+# LOGGING
+logging:
+  file: build/easy-buying.log
+  level:
+    org.wpattern.easy.buying: DEBUG
+    org.springframework: INFO
+    org.hibernate: INFO
+
+# DATABASE
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/easy_buying
+    username: easy
+    password: buying
+    driverClassName: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
