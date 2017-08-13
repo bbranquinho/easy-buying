@@ -1,6 +1,11 @@
 package org.wpattern.easy.buying.domain.user;
 
-public class UserEntity {
+import org.wpattern.easy.buying.utils.BaseEntity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class UserEntity extends BaseEntity<Long> {
 
     private String name;
 
