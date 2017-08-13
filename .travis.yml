@@ -8,7 +8,6 @@ deploy:
     secure: "$HEROKU_API_KEY"
   app: easy-buying
 script:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   - mvn test
   - mvn cobertura:cobertura
 after_success:
