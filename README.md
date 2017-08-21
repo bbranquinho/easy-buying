@@ -1,5 +1,7 @@
 # Easy Buying
 
+[![Join the chat at https://gitter.im/bbranquinho/easy-buying](https://badges.gitter.im/bbranquinho/easy-buying.svg)](https://gitter.im/bbranquinho/easy-buying?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/bbranquinho/easy-buying.svg?branch=master)](https://travis-ci.org/bbranquinho/easy-buying) [![codecov](https://codecov.io/gh/bbranquinho/easy-buying/branch/master/graph/badge.svg)](https://codecov.io/gh/bbranquinho/easy-buying)
 
 ## 1. Requisitos
