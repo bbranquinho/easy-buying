@@ -16,8 +16,6 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: UPDATE
-  server:
-      port: 9090
+      ddl-auto: update
   security:
       password.secret: secret

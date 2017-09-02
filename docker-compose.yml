@@ -6,8 +6,8 @@ services:
      - "5432:5432"
    environment:
      - POSTGRES_DB=easy_buying
-     - POSTGRES_USER=easy
-     - POSTGRES_PASSWORD=buying
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=admin
      - MAX_CONNECTIONS=100
  stubby4j:
    image: sandokandias/stubby4j-docker

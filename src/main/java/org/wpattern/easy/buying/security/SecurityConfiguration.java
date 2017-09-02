@@ -1,24 +1,14 @@
 package org.wpattern.easy.buying.security;
 
-import java.io.IOException;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -29,86 +19,101 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 import org.wpattern.easy.buying.utils.ResourcePaths;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 
 @EnableWebSecurity
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	public static final String AUTH_USER = "ROLE_USER";
+    public static final String AUTH_USER = "ROLE_USER";
 
-	public static final String AUTH_ADMIN = "ROLE_ADMIN";
+    public static final String AUTH_ADMIN = "ROLE_ADMIN";
 
-	@Autowired
-	private UserDetailsService userService;
+    @Autowired
+    private UserDetailsService userService;
 
-	//@Autowired
-	//private PasswordEncoder passwordEncoder;
+    //@Autowired
+    //private PasswordEncoder passwordEncoder;
 
-	@Autowired
-	private HeaderHandler headerHandler;
+    @Autowired
+    private HeaderHandler headerHandler;
 
-	//@Override
-	//public void configure(AuthenticationManagerBuilder auth) throws Exception {
-		//auth.userDetailsService(this.userService).passwordEncoder(this.passwordEncoder);
-	//}
+    //@Override
+    //public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    //auth.userDetailsService(this.userService).passwordEncoder(this.passwordEncoder);
+    //}
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.httpBasic().and().authorizeRequests()
-		// Global Authority to OPTIONS (permit all).
-		.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-		// Public (permit all).
-		.antMatchers(ResourcePaths.PUBLIC_ROOT_PATH + ResourcePaths.ALL).permitAll()
-		// Package Authorities.
-		.antMatchers(HttpMethod.GET, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
-		.antMatchers(HttpMethod.POST, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
-		.antMatchers(HttpMethod.PUT, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
-		.antMatchers(HttpMethod.DELETE, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
-		// User Authorities.
-		.antMatchers(HttpMethod.GET, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
-		.antMatchers(HttpMethod.POST, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
-		.antMatchers(HttpMethod.PUT, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
-		.antMatchers(HttpMethod.DELETE, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
-		// Permission Authorities.
-		.antMatchers(HttpMethod.GET, ResourcePaths.PERMISSION_PATH).hasAnyAuthority(AUTH_ADMIN)
-		.anyRequest().fullyAuthenticated().and()
-		// Logout configuration.
-		.logout().logoutRequestMatcher(new AntPathRequestMatcher(ResourcePaths.LOGOUT_PATH)).logoutSuccessHandler(headerHandler).and()
-		// CSRF configuration.
-		.csrf().csrfTokenRepository(csrfTokenRepository()).and()
-		.addFilterAfter(csrfHeaderFilter(), CsrfFilter.class)
-		.addFilterAfter(headerHandler, ChannelProcessingFilter.class);
-	}
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resources/**");
+    }
 
-	private CsrfTokenRepository csrfTokenRepository() {
-		HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-		repository.setHeaderName("X-XSRF-TOKEN");
-		return repository;
-	}
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.httpBasic().and().authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("index.html").permitAll()
+                // Global Authority to OPTIONS (permit all).
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                // Public (permit all).
+                .antMatchers(ResourcePaths.PUBLIC_ROOT_PATH + ResourcePaths.ALL).permitAll()
+                // Package Authorities.
+                .antMatchers(HttpMethod.GET, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
+                .antMatchers(HttpMethod.POST, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
+                .antMatchers(HttpMethod.PUT, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
+                .antMatchers(HttpMethod.DELETE, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
+                // User Authorities.
+                .antMatchers(HttpMethod.GET, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.POST, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.PUT, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.DELETE, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
+                // Permission Authorities.
+                .antMatchers(HttpMethod.GET, ResourcePaths.PERMISSION_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .anyRequest().fullyAuthenticated().and()
+                // Logout configuration.
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher(ResourcePaths.LOGOUT_PATH)).logoutSuccessHandler(headerHandler).and()
+                // CSRF configuration.
+                .csrf().csrfTokenRepository(csrfTokenRepository()).and()
+                .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class)
+                .addFilterAfter(headerHandler, ChannelProcessingFilter.class);
+    }
 
-	private Filter csrfHeaderFilter() {
-		return new OncePerRequestFilter() {
+    private CsrfTokenRepository csrfTokenRepository() {
+        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+        repository.setHeaderName("X-XSRF-TOKEN");
+        return repository;
+    }
 
-			@Override
-			protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
-					FilterChain filterChain) throws ServletException, IOException {
-				CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+    private Filter csrfHeaderFilter() {
+        return new OncePerRequestFilter() {
 
-				if (csrf != null) {
-					Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
-					String token = csrf.getToken();
+            @Override
+            protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
+                                            FilterChain filterChain) throws ServletException, IOException {
+                CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
 
-					if (cookie == null || token != null && !token.equals(cookie.getValue())) {
-						cookie = new Cookie("XSRF-TOKEN", token);
-						cookie.setPath("/");
-						response.addCookie(cookie);
-					}
-				}
+                if (csrf != null) {
+                    Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
+                    String token = csrf.getToken();
 
-				filterChain.doFilter(request, response);
-			}
+                    if (cookie == null || token != null && !token.equals(cookie.getValue())) {
+                        cookie = new Cookie("XSRF-TOKEN", token);
+                        cookie.setPath("/");
+                        response.addCookie(cookie);
+                    }
+                }
 
-		};
-	}
+                filterChain.doFilter(request, response);
+            }
+
+        };
+    }
 
 }
