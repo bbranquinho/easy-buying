@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mutrack')
+angular.module('easy-buying')
   .service('httpRequestInterceptor', function ($q, $cookies) {
   return {
     request: function (config) {

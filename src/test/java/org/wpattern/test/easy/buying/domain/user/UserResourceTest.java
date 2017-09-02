@@ -6,6 +6,7 @@ import org.springframework.restdocs.payload.PayloadDocumentation;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.wpattern.easy.buying.permission.PermissionEntity;
 import org.wpattern.easy.buying.utils.ResourcePaths;
 import org.wpattern.test.easy.buying.utils.BaseResourceTest;
 
@@ -14,6 +15,16 @@ public class UserResourceTest extends BaseResourceTest {
     private static final String USER_ID = "Identificador único do usuário.";
 
     private static final String USER_NAME = "Nome do usuário.";
+
+    private static final String EMAIL = "Email do usuário";
+
+    private static final String PASSWORD = "Senha do usuário";
+
+    private static final String PHONE = "34991393623";
+
+    private static final PermissionEntity PERMISSION_ENTITY = new PermissionEntity();
+
+
 
     @Test
     public void findAll_success() throws Exception {
@@ -24,7 +35,11 @@ public class UserResourceTest extends BaseResourceTest {
                         MockMvcRestDocumentation.document("{method-name}",
                                 PayloadDocumentation.responseFields(
                                         PayloadDocumentation.fieldWithPath("[].id").description(USER_ID),
-                                        PayloadDocumentation.fieldWithPath("[].name").description(USER_NAME)
+                                        PayloadDocumentation.fieldWithPath("[].name").description(USER_NAME),
+                                        PayloadDocumentation.fieldWithPath("[].email").description(EMAIL),
+                                        PayloadDocumentation.fieldWithPath("[].password").description(PASSWORD),
+                                        PayloadDocumentation.fieldWithPath("[].phone").description(PHONE),
+                                        PayloadDocumentation.fieldWithPath("[].permissions").description(PERMISSION_ENTITY)
                                 )
                         )
                 )

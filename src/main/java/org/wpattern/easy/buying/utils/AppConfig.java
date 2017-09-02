@@ -36,6 +36,7 @@ public class AppConfig {
                 .paths(PathSelectors.regex(ResourcePaths.ROOT_PATH + "/.*"))
                 .build();
     }
+    
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

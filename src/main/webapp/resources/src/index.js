@@ -1,8 +1,8 @@
 'use strict';
 
-var BASE_URL = 'http://localhost:8080/api';
+var BASE_URL = 'http://localhost:9090/api';
 
-angular.module('mutrack', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookies', 'ngStorage'])
+angular.module('easy-buying', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookies', 'ngStorage'])
   .constant('SERVICE_PATH', {
     'ROOT_PATH': BASE_URL,
     'PUBLIC_PATH': BASE_URL + '/public',

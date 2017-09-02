@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mutrack')
+angular.module('easy-buying')
   .service('LoginLogoutSrv', function($http, $cookies, $rootScope, $location, $localStorage, ngNotify, SERVICE_PATH) {
     var serviceFactory = {};
     var urlLogin  = SERVICE_PATH.PUBLIC_PATH + '/login';

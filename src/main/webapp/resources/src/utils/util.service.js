@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mutrack')
+angular.module('easy-buying')
   .service('HttpRequestSrv', function($http, ngNotify) {
     return function(url, method, data, callback) {
       var requestParams = {

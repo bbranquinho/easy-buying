@@ -29,4 +29,17 @@ public class UserRepositoryTest extends BaseTest {
         assertTrue(users.size() > 0);
     }
 
+    @Test
+    public void insert() {
+        //Usuario
+        UserEntity objUser = new UserEntity();
+
+        objUser.setName("Wannisson");
+        objUser.setEmail("wannisson@gmail.com");
+        objUser.setPassword("123");
+        objUser.setPhone("34991393623");
+
+        userRepository.save(objUser);
+    }
+
 }

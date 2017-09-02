@@ -1,5 +1,5 @@
 'use strict';
 
-angular.module('mutrack')
+angular.module('easy-buying')
   .controller('HomeCtrl', function() {
   });
