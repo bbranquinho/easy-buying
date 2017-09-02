@@ -5,10 +5,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.wpattern.easy.buying.domain.user.UserEntity;
 import org.wpattern.easy.buying.domain.user.UserRepository;
-import org.wpattern.easy.buying.permission.PermissionEntity;
 import org.wpattern.test.easy.buying.utils.BaseTest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
@@ -30,18 +28,18 @@ public class UserRepositoryTest extends BaseTest {
         assertNotNull(users);
         assertTrue(users.size() > 0);
     }
-    
+
     @Test
     public void insert() {
-
         //Usuario
-    UserEntity objUser = new UserEntity();
-    objUser.setName("Wannisson");
-    objUser.setEmail("wannisson@gmail.com");
-    objUser.setPassword("123");
-    objUser.setPhone("34991393623");
-    userRepository.save(objUser);
-        
+        UserEntity objUser = new UserEntity();
+
+        objUser.setName("Wannisson");
+        objUser.setEmail("wannisson@gmail.com");
+        objUser.setPassword("123");
+        objUser.setPhone("34991393623");
+
+        userRepository.save(objUser);
     }
 
 }
