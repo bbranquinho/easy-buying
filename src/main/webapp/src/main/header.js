@@ -1,6 +1,6 @@
 'user strict';
 
-angular.module('mutrack').
+angular.module('easy-buying').
   controller('headerSrv', function($scope, $rootScope, $location, LoginLogoutSrv) {
 
     $scope.hasAnyPermission = function(authorities) {

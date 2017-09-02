@@ -1,46 +1,75 @@
-<!doctype html>
-<html class="no-js">
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html ng-app="easy-buying">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>jhipster_maven</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <title>Easy-Buying</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- build:css content/css/vendor.css -->
-    <!-- bower:css -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/ng-notify.min.css">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="src/login/login.css">
+    <link rel="stylesheet" href="src/main/main.css">
     <!-- endinject -->
-    <!-- endbuild -->
-
-    <!-- build:css content/css/main.css -->
-    <link rel="stylesheet" href="content/css/main.css">
-    <!-- endbuild -->
 </head>
-<body ng-app="jhipsterMavenApp" ng-strict-di>
-    <!--[if lt IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <page-ribbon></page-ribbon>
-    <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
-            <!-- Angular views -->
-        </div>
 
-        <div class="footer" ng-cloak>
-            <p data-translate="footer">This is your footer</p>
-        </div>
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Header -->
+    <header ng-include="'src/main/header.html'" id="header"></header>
+
+    <!-- Menu -->
+    <section id="menu" ng-controller="headerSrv">
+        <!-- Links -->
+        <section ng-include="'src/main/menu.html'"></section>
+    </section>
+
+    <!-- Main -->
+    <div id="main">
+        <!-- Post -->
+        <article class="post">
+            <ng-view />
+        </article>
     </div>
+</div>
 
-    <!-- build:js app/vendor.js -->
-    <!-- bower:js -->
-    <!-- endinject -->
-    <!-- endbuild -->
+<script src="js/angular.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/angular-cookies.min.js"></script>
+<script src="js/ngStorage.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/skel.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/ie/html5shiv.js"></script>
+<script src="js/ie/respond.min.js"></script>
 
-    <!-- build:js app/app.js  -->
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- endbuild -->
+<!-- https://github.com/vitalets/checklist-model -->
+<!-- http://vitalets.github.io/checklist-model/ -->
+<script src="js/checklist-model.js"></script>
 
+<!-- https://github.com/matowens/ng-notify -->
+<!-- http://matowens.github.io/ng-notify/ -->
+<script src="js/ng-notify.min.js"></script> <!--  -->
+
+<!-- inject:js -->
+<script src="src/index.js"></script>
+<script src="src/home/home.js"></script>
+<script src="src/login/login.js"></script>
+<script src="src/login/login.logout.service.js"></script>
+<script src="src/main/header.js"></script>
+<script src="src/main/main.js"></script>
+<script src="src/packagee/packagee.js"></script>
+<script src="src/user/user.js"></script>
+<script src="src/utils/interceptor.js"></script>
+<script src="src/utils/util.filter.js"></script>
+<script src="src/utils/util.service.js"></script>
+<!-- endinject -->
 </body>
 </html>

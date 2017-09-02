@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mutrack')
+angular.module('easy-buying')
   .controller('LoginCtrl', function($scope, LoginLogoutSrv) {
 
     $scope.login = function(email, password) {

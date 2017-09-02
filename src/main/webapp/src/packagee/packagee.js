@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mutrack')
+angular.module('easy-buying')
   .controller('PackageeCtrl', function($scope, ngNotify, RestSrv, SERVICE_PATH) {
     $scope.packagee = {};
     $scope.packagees = [];

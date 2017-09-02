@@ -10,10 +10,14 @@ logging:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/easy_buying
-    username: easy
-    password: buying
+    username: postgres
+    password: admin
     driverClassName: org.postgresql.Driver
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: UPDATE
+  server:
+      port: 9090
+  security:
+      password.secret: secret
