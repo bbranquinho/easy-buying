@@ -1,8 +1,8 @@
 
 --Script para popular tabela de permissao
-INSERT INTO `tb_permission` (`pk_id`, `role`) VALUES (1,'ADMIN');
-INSERT INTO `tb_permission` (`pk_id`, `role`) VALUES (2,'USER');
-INSERT INTO `tb_permission` (`pk_id`, `role`) VALUES (3,'FORNE');
+INSERT INTO `tb_permission` (`pk_id`, `role`) VALUES (1,'ROLE_ADMIN');
+INSERT INTO `tb_permission` (`pk_id`, `role`) VALUES (2,'ROLE_USER');
+INSERT INTO `tb_permission` (`pk_id`, `role`) VALUES (3,'ROLE_FORNEC');
 
 --Script para popular tabela de usuario
 INSERT INTO `tb_user` (`pk_id`,`name`, `email`, `password`,`phone`) VALUES (1,'User 1','wannisson@gmail.com','123','34991393623');
