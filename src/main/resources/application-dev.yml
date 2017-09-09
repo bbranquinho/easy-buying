@@ -16,6 +16,17 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
-  security:
-      password.secret: secret
+      ddl-auto: none
+
+# SECURITY
+security:
+    password:
+      secret: secret
+
+# LIQUIBASE
+liquibase:
+  enabled: true
+  change-log: classpath:data/config/master.xml
+  url: jdbc:postgresql://localhost:5432/easy_buying
+  user: postgres
+  password: admin

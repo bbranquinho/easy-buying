@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.wpattern.easy.buying.AppMain;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -28,6 +29,14 @@ public class AppConfig {
     @Value("${spring.application.version}")
     private String appVersion;
 
+    @Value("${security.password.secret}")
+    private String secret;
+
+    @Bean(name = "passwordEncoder")
+    public StandardPasswordEncoder getStandardPasswordEncoder() {
+        return new StandardPasswordEncoder(secret);
+    }
+
     @Bean
     public Docket newsApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -36,7 +45,6 @@ public class AppConfig {
                 .paths(PathSelectors.regex(ResourcePaths.ROOT_PATH + "/.*"))
                 .build();
     }
-    
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

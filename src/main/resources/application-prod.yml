@@ -16,6 +16,17 @@ spring:
   jpa:
     show-sql: false
     hibernate:
-      ddl-auto: update
-  security:
-      password.secret: ${PASSWORD_SECRET}
+      ddl-auto: none
+
+# SECURITY
+security:
+  password:
+    secret: ${SECURITY_PASSWORD_SECRET}
+
+# LIQUIBASE
+liquibase:
+  enabled: true
+  change-log: classpath:data/changelog/master.xml
+  url: ${JDBC_DATABASE_URL}
+  user: ${JDBC_DATABASE_USERNAME}
+  password: ${JDBC_DATABASE_PASSWORD}

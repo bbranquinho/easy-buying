@@ -5,8 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.wpattern.easy.buying.domain.user.UserEntity;
-import org.wpattern.easy.buying.domain.user.UserRepository;
+import org.wpattern.easy.buying.user.UserEntity;
+import org.wpattern.easy.buying.user.UserRepository;
 import org.wpattern.easy.buying.permission.PermissionEntity;
 
 
