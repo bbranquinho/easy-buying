@@ -1,4 +1,4 @@
-package org.wpattern.easy.buying.domain.user;
+package org.wpattern.easy.buying.user;
 
 import java.util.List;
 

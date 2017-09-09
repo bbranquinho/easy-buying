@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.wpattern.easy.buying.domain.user.UserRepository;
+import org.wpattern.easy.buying.user.UserRepository;
 import org.wpattern.easy.buying.permission.PermissionRepository;
 import org.wpattern.easy.buying.userpermission.UserPermissionEntity;
 import org.wpattern.easy.buying.userpermission.UserPermissionKey;

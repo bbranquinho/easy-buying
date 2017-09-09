@@ -19,3 +19,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
+
+# SECURITY
+security:
+    password:
+      secret: secret
