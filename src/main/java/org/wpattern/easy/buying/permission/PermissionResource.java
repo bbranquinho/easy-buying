@@ -7,6 +7,6 @@ import org.wpattern.easy.buying.utils.ResourcePaths;
 
 @RestController
 @RequestMapping(path = ResourcePaths.PERMISSION_PATH)
-public class PermissionResource extends GenericService<PermissionEntity, Long> {
+public class PermissionResource extends GenericService<Permission, Long> {
 
 }

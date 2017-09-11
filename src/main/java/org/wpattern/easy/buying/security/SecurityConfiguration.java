@@ -38,6 +38,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     public static final String AUTH_ADMIN = "ROLE_ADMIN";
 
+    public static final String ROLE_FUNCIONARIO = "ROLE_FUNCIONARIO";
+
     @Autowired
     private UserDetailsService userService;
 
@@ -77,7 +79,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
                 .antMatchers(HttpMethod.DELETE, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
                 // Permission Authorities.
-                .antMatchers(HttpMethod.GET, ResourcePaths.PERMISSION_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.GET, ResourcePaths.PERMISSION_PATH).hasAnyAuthority(AUTH_USER,AUTH_ADMIN)
                 .anyRequest().fullyAuthenticated().and()
                 // Logout configuration.
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher(ResourcePaths.LOGOUT_PATH)).logoutSuccessHandler(headerHandler).and()

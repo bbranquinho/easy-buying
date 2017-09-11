@@ -3,16 +3,16 @@ package org.wpattern.test.easy.buying.domain.user;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.wpattern.easy.buying.user.UserEntity;
+import org.wpattern.easy.buying.user.User;
 import org.wpattern.easy.buying.user.UserRepository;
-import org.wpattern.test.easy.buying.utils.BaseTest;
+import org.wpattern.test.easy.buying.utils.BaseEntityTest;
 
 import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class UserRepositoryTest extends BaseTest {
+public class UserRepositoryTest extends BaseEntityTest {
 
     private final Logger LOGGER = Logger.getLogger(this.getClass());
 
@@ -21,7 +21,7 @@ public class UserRepositoryTest extends BaseTest {
 
     @Test
     public void findAll_success() {
-        List<UserEntity> users = userRepository.findAll();
+        List<User> users = userRepository.findAll();
 
         LOGGER.debug(users);
 
@@ -32,12 +32,12 @@ public class UserRepositoryTest extends BaseTest {
     @Test
     public void insert() {
         //Usuario
-        UserEntity objUser = new UserEntity();
+        User objUser = new User();
 
-        objUser.setName("Wannisson");
-        objUser.setEmail("wannisson@gmail.com");
-        objUser.setPassword("123");
-        objUser.setPhone("34991393623");
+        objUser.setName("Eina");
+        objUser.setEmail("eina@gmail.com");
+        objUser.setPassword("admin");
+        objUser.setPhone("34992048276");
 
         userRepository.save(objUser);
     }

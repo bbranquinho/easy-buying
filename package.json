@@ -2,6 +2,7 @@
   "name": "easy-buying",
   "version": "0.0.1",
   "description": "Easy buying",
+  "main": "src/main/webapp/resources/js/admin.js",
   "private": true,
   "cacheDirectories": [
     "node_modules",
