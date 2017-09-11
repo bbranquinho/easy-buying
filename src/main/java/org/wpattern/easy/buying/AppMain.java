@@ -25,7 +25,7 @@ public class AppMain {
 
         LOGGER.info("\n|------------------------------------------------------------" +
                 "\n| Application '" + applicationName + "' is running! Access URLs:" +
-                "\n|   Local:      http://127.0.0.1:" + port + contextPath +
+                "\n|   Local:      http://192.168.1.4:" + port + contextPath +
                 "\n|   External:   http://" + hostAddress + ":" + port + contextPath +
                 "\n|------------------------------------------------------------");
     }

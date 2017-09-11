@@ -38,6 +38,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     public static final String AUTH_ADMIN = "ROLE_ADMIN";
 
+    public static final String ROLE_FUNCIONARIO = "ROLE_FUNCIONARIO";
+
     @Autowired
     private UserDetailsService userService;
 
@@ -60,6 +62,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().and().authorizeRequests()
+                .antMatchers("/").permitAll()
                 .antMatchers("index.html").permitAll()
                 // Global Authority to OPTIONS (permit all).
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()

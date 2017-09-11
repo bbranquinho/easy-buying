@@ -1,6 +1,6 @@
 'use strict';
 
-var BASE_URL = 'http://127.1.1.1:9090/api';
+var BASE_URL = 'http://localhost:9090/api';
 
 angular.module('easy-buying', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookies', 'ngStorage'])
   .constant('SERVICE_PATH', {
@@ -26,6 +26,9 @@ angular.module('easy-buying', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCook
         templateUrl: 'src/user/user.html',
         controller: 'UserCtrl'
       })
+      .when('/registrar_user',{
+        templateUrl: 'src/user/form_user_new.html',
+        controller: 'UserCtrl'})
       .otherwise({
         redirectTo: '/'
       });
