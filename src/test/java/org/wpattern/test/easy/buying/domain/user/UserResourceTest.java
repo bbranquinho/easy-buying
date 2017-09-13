@@ -6,11 +6,11 @@ import org.springframework.restdocs.payload.PayloadDocumentation;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.wpattern.easy.buying.permission.PermissionEntity;
+import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.utils.ResourcePaths;
-import org.wpattern.test.easy.buying.utils.BaseResourceTest;
+import org.wpattern.test.easy.buying.utils.BaseEntityResourceTest;
 
-public class UserResourceTest extends BaseResourceTest {
+public class UserResourceTest extends BaseEntityResourceTest {
 
     private static final String USER_ID = "Identificador único do usuário.";
 
@@ -22,7 +22,7 @@ public class UserResourceTest extends BaseResourceTest {
 
     private static final String PHONE = "34991393623";
 
-    private static final PermissionEntity PERMISSION_ENTITY = new PermissionEntity();
+    private static final Permission PERMISSION_ENTITY = new Permission();
 
 
 

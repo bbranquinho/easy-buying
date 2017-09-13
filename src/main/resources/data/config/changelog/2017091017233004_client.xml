@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+
+    <changeSet id="1" author="wannisson">
+        <createTable tableName="tb_client">
+
+            <column name="id_person" type="bigint">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet author="wannisson" id="2">
+        <addForeignKeyConstraint baseColumnNames="id_person"
+                                 baseTableName="tb_client" constraintName="FK_fc1j6r97k5pwb3joeobrwjcxo"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="id_person"
+                                 referencedTableName="tb_person" />
+    </changeSet>
+
+    <changeSet id="3" author="wannisson">
+        <insert tableName="tb_client">
+            <column name="id_person" value="1" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
