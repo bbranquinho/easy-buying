@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 	
-	public UserEntity findByEmail(String email);
+	public User findByEmail(String email);
 	
-	public List<UserEntity> findByEmailOrName(String email, String name);
+	public List<User> findByEmailOrName(String email, String name);
 }

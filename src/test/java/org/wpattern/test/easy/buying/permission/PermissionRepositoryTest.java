@@ -3,9 +3,9 @@ import org.apache.log4j.Logger;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.wpattern.easy.buying.permission.PermissionEntity;
+import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.permission.PermissionRepository;
-import org.wpattern.test.easy.buying.utils.BaseTest;
+import org.wpattern.test.easy.buying.utils.BaseEntityTest;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
-public class PermissionRepositoryTest extends BaseTest {
+public class PermissionRepositoryTest extends BaseEntityTest {
 
     private final Logger LOGGER = Logger.getLogger(this.getClass());
 
@@ -23,7 +23,7 @@ public class PermissionRepositoryTest extends BaseTest {
 
     @Test
     public void findAll_success() {
-        List<PermissionEntity> permissions = permissionRepository.findAll();
+        List<Permission> permissions = permissionRepository.findAll();
 
         LOGGER.debug(permissions);
 
@@ -33,14 +33,14 @@ public class PermissionRepositoryTest extends BaseTest {
 
     @Test
     public void insert() {
-        PermissionEntity objPermission = new PermissionEntity();
+        Permission objPermission = new Permission();
         objPermission.setRole("ROLE_TESTE");
         permissionRepository.save(objPermission);
     }
 
     @Test
     public void findOne_success() {
-        PermissionEntity objPermission = permissionRepository.findOne(1L);
+        Permission objPermission = permissionRepository.findOne(1L);
 
         LOGGER.debug(objPermission);
 

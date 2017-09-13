@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "name": "easy-buying",
+  "main": "src/main/webapp/resources/js/admin.js",
   "appPath": "src/main/webapp/",
   "dependencies": {
     "angular": "1.5.8",

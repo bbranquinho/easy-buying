@@ -9,5 +9,7 @@
     <include file="data/config/changelog/20170908214000_permission.xml" />
     <include file="data/config/changelog/20170908214001_user.xml" />
     <include file="data/config/changelog/20170908214002_user_permission.xml" />
+    <include file="data/config/changelog/201709101721003_person.xml" />
+    <include file="data/config/changelog/2017091017233004_client.xml" />
 
 </databaseChangeLog>

@@ -26,6 +26,9 @@ angular.module('easy-buying', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCook
         templateUrl: 'src/user/user.html',
         controller: 'UserCtrl'
       })
+      .when('/registrar_user',{
+        templateUrl: 'src/user/form_user_new.html',
+        controller: 'UserCtrl'})
       .otherwise({
         redirectTo: '/'
       });

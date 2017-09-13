@@ -7,9 +7,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.wpattern.easy.buying.utils.ResourcePaths;
-import org.wpattern.test.easy.buying.utils.BaseResourceTest;
+import org.wpattern.test.easy.buying.utils.BaseEntityResourceTest;
 
-public class PermissionResourceTest extends BaseResourceTest {
+public class PermissionResourceTest extends BaseEntityResourceTest {
 
     private static final String PERMISSION_ID = "Identificador único da Permissão.";
 
