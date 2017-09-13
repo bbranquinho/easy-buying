@@ -32,11 +32,5 @@ public class ClientRepositoryTest extends BaseEntityTest {
         assertTrue(clients.size() > 0);
     }
 
-    @Ignore
-    @Test
-    public void insert() {
-
-
-    }
 
 }
