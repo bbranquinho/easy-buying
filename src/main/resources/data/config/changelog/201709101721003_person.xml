@@ -68,7 +68,7 @@
             <column name="rua" value="Rua Iolanda Alves Figueira" />
             <column name="numero" value="68" />
             <column name="status" value="Ativo" />
-            <column name="user_id" value="2" />
+            <column name="user_id" value="1" />
         </insert>
 
 
