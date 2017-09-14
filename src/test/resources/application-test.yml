@@ -23,7 +23,7 @@ spring:
 # SECURITY
 security:
     password:
-      secret: 5aac84cd4a2f9d71d59cc9f445dfbfbf
+      secret: secret
 
 # LIQUIBASE
 liquibase:
