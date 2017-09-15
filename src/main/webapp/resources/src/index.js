@@ -1,6 +1,6 @@
 'use strict';
 
-var BASE_URL = 'http://localhost:9090/api';
+var BASE_URL = window.location.origin + '/api';
 
 angular.module('easy-buying', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCookies', 'ngStorage'])
   .constant('SERVICE_PATH', {
