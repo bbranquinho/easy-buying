@@ -1,9 +1,11 @@
 package org.wpattern.easy.buying.security;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.user.User;
@@ -13,12 +15,20 @@ import org.wpattern.easy.buying.user.UserRepository;
 @Component
 public class UserDetail implements UserDetailsService {
 
+	private final Logger LOGGER = Logger.getLogger(this.getClass());
+
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private PasswordEncoder encoder;
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		User user = this.userRepository.findByEmail(email);
+
+		LOGGER.info("TESTEEEEEE " + user);
+		LOGGER.info("TESTEEEEEE " + encoder.encode("admin"));
 
 		if (user == null) {
 			throw new UsernameNotFoundException("User with email \"" + email + "\" was not found");
