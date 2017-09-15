@@ -3,10 +3,13 @@ package org.wpattern.test.easy.buying.domain.user;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.wpattern.easy.buying.permission.Permission;
+import org.wpattern.easy.buying.permission.PermissionRepository;
 import org.wpattern.easy.buying.user.User;
 import org.wpattern.easy.buying.user.UserRepository;
 import org.wpattern.test.easy.buying.utils.BaseEntityTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
@@ -18,6 +21,9 @@ public class UserRepositoryTest extends BaseEntityTest {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PermissionRepository permissionRepository;
 
     @Test
     public void findAll_success() {
@@ -41,5 +47,20 @@ public class UserRepositoryTest extends BaseEntityTest {
 
         userRepository.save(objUser);
     }
+
+
+    @Test
+    public void insert_construct() {
+        //Usuario
+        User objUser = new User("Wannisson", "wannisson@test.com", "123", "34991393623");
+
+        List<Permission> lstPermission = new ArrayList<Permission>();
+        lstPermission.add(permissionRepository.findByRole("ROLE_ADMIN"));
+        objUser.setPermissions(lstPermission);
+
+        userRepository.save(objUser);
+    }
+
+
 
 }
