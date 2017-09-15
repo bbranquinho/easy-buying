@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.user.User;
@@ -15,6 +16,9 @@ public class UserDetail implements UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private PasswordEncoder encoder;
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
