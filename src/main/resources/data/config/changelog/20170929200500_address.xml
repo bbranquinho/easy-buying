@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="wannisson">
+        <createTable tableName="tb_address">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints  nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="cep" type="varchar(8)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="district_id" type="bigint" >
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="wannisson">
+        <addForeignKeyConstraint baseColumnNames="district_id"
+                                 baseTableName="tb_address" constraintName="fk_address_district"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="tb_neighborhood" />
+
+    </changeSet>
+    <changeSet id="3" author="wannisson">
+        <insert tableName="tb_address">
+            <column name="id" value="1"/>
+            <column name="name" value="Rua Iolanda Alves Figueira" />
+            <column name="cep" value="38414650" />
+            <column name="district_id" value="1" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

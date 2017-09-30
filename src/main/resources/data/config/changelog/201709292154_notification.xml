@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="wannisson">
+        <createTable tableName="tb_notification">
+            <column name="quotation_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="notification_template_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="message" type="varchar(1024)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="wannisson">
+        <addForeignKeyConstraint baseColumnNames="quotation_id"
+                                 baseTableName="tb_notification" constraintName="fk_notification_quotation"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="tb_quotation" />
+
+        <addForeignKeyConstraint baseColumnNames="notification_template_id"
+                                 baseTableName="tb_notification" constraintName="fk_notification_template"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="tb_notification_template" />
+    </changeSet>
+    <changeSet id="3" author="wannisson">
+        <insert tableName="tb_notification">
+            <column name="quotation_id" value="1"/>
+            <column name="notification_template_id" value="1"/>
+            <column name="message" value="Você tem um novo orçamento"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

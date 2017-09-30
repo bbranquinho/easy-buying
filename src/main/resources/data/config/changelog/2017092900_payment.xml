@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="wannisson">
+        <createTable tableName="tb_payment">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expiration" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="decimal(12,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="supplier_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_feature_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="wannisson">
+        <addForeignKeyConstraint baseColumnNames="supplier_id"
+                                 baseTableName="tb_payment" constraintName="fk_payment_supplier"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="tb_supplier" />
+
+        <addForeignKeyConstraint baseColumnNames="payment_feature_id"
+                                 baseTableName="tb_payment" constraintName="fk_payment_feature"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="tb_payment_feature" />
+    </changeSet>
+    <changeSet id="3" author="wannisson">
+        <insert tableName="tb_payment">
+            <column name="id" value="1"/>
+            <column name="date" value="2017-09-09"/>
+            <column name="expiration" value="2017-12-12" />
+            <column name="value" value="49.00"/>
+            <column name="supplier_id" value="1" />
+            <column name="payment_feature_id" value="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
