@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="wannisson">
+        <createTable tableName="tb_product">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(127)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="product_category" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="wannisson">
+        <addForeignKeyConstraint baseColumnNames="product_category"
+                                 baseTableName="tb_product" constraintName="fk_product_category"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="tb_product_category" />
+
+    </changeSet>
+    <changeSet id="3" author="wannisson">
+        <insert tableName="tb_product">
+            <column name="id" value="1"/>
+            <column name="name" value="Smartphone Samsung Galaxy J7 Metal Dual Chip Android 6.0 Tela 5.5 16GB 4G Câmera 13MP - Dourado"/>
+            <column name="description" value="Corpo em alumínio de alta resistência, 'Acabamento Premium tipo aço escovado, 'Câmera Frontal de 5MP f1.9 + Flash, '5.5 HD Super Amoled, 'Bateria de longa duração 3.300mAh, '2GB RAM"/>
+            <column name="product_category" value="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

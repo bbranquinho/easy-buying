@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="wannisson" id="1">
+        <addColumn catalogName="cat"
+                   schemaName="public"
+                   tableName="tb_user">
+            <column name="photo" type="blob"/>
+            <column name="address_complement" type="varchar(127)"/>
+            <column name="address_number" type="varchar(20)"/>
+            <column name="address_reference" type="varchar(127)"/>
+            <column name="last_name" type="varchar(127)" />
+            <column name="address_id" type="bigint" />
+
+        </addColumn>
+
+        <dropUniqueConstraint catalogName="cat"
+                              constraintName="UK_spmnyb4dsul95fjmr5kmdmvub"
+                              schemaName="public"
+                              tableName="tb_user"
+                              uniqueColumns="email"/>
+    </changeSet>
+    <changeSet id="2" author="wannisson">
+        <addForeignKeyConstraint baseColumnNames="address_id"
+                                 baseTableName="tb_user" constraintName="fk_address_user"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="tb_address" />
+
+    </changeSet>
+
+    <changeSet author="wannisson" id="3">
+        <update catalogName="cat"
+                schemaName="public"
+                tableName="tb_user">
+            <column name="address_id" value="1"/>
+            <column name="address_complement" value="casa"/>
+            <column name="address_number" value="68"/>
+            <column name="address_reference" value="Perto do sesc senat"/>
+            <column name="last_name" value="Freitas Pinho" />
+            <where>pk_id = 1</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

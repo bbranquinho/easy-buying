@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="wannisson">
+        <createTable tableName="tb_neighborhood">
+            <column name="id" type="bigint" autoIncrement="true">
+            <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(127)">
+                <constraints nullable="false" />
+            </column>
+            <column name="cuty_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="wannisson">
+        <addForeignKeyConstraint baseColumnNames="cuty_id"
+                                 baseTableName="tb_neighborhood" constraintName="fk_neighborhood_city"
+                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onUpdate="RESTRICT" referencedColumnNames="id"
+                                 referencedTableName="tb_city" />
+
+    </changeSet>
+    <changeSet id="3" author="wannisson">
+        <insert tableName="tb_neighborhood">
+            <column name="id" value="1" />
+            <column name="name" value="JARDIM EUROPA" />
+            <column name="cuty_id" value="1" />
+        </insert>
+    </changeSet>
+</databaseChangeLog>
