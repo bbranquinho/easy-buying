@@ -17,15 +17,15 @@ public class UserResourceTest extends BaseEntityResourceTest {
 
     private static final String USER_NAME = "Nome do usuário.";
 
+    private static final String LAST_NAME = "Sobre nome";
+
     private static final String EMAIL = "Email do usuário";
 
     private static final String PASSWORD = "Senha do usuário";
 
     private static final String PHONE = "34991393623";
 
-    private static final Permission PERMISSION_ENTITY = new Permission();
-
-    private static final Address ADDRESS_ID = new Address();
+    private static final byte[] PHOTO = new byte[100];
 
     private static final String ADDRESS_COMPLEMENT = "Complemento do Endereço";
 
@@ -33,10 +33,9 @@ public class UserResourceTest extends BaseEntityResourceTest {
 
     private static final String ADDRESS_REFERENCE = "Referencia da casa";
 
-    private static final String LAST_NAME = "Sobre nome";
+    private static final Permission PERMISSION_ENTITY = new Permission();
 
-    private static final byte[] PHOTO = new byte[100];
-
+    private static final Address ADDRESS_ID = new Address();
 
 
     @Test

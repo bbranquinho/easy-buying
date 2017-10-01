@@ -18,8 +18,8 @@ INSERT INTO `tb_neighborhood`(`id`,`name`,`cuty_id`) VALUES (1,'JARDIM EUROPA',1
 INSERT INTO `tb_address`(`id`,`name`,`cep`,`district_id`) VALUES (1,'Rua Iolanda Alves Figueira','38414650',1);
 
 --Script para popular tabela de usuario
-INSERT INTO `tb_user` (`pk_id`,`name`, `email`, `password`,`phone`,`address_id`,`address_complement`,`address_number`,`address_reference`,`last_name`) VALUES (1,'User 1','wannisson@gmail.com','123','34991393623',1,'casa','68','Perto do sesc senat','Freitas Pinho');
-INSERT INTO `tb_user` (`pk_id`,`name`, `email`, `password`,`phone`,`address_id`,`address_complement`,`address_number`,`address_reference`,`last_name`) VALUES (2,'User 2','wannisson.freitas.pinho@everis.com','123','34991393623',1,'casa','68','Perto do sesc senat','Freitas Pinho');
+INSERT INTO `tb_user` (`pk_id`,`name`, `email`, `password`,`phone`,`photo`,`address_id`,`address_complement`,`address_number`,`address_reference`,`last_name`) VALUES (1,'User 1','wannisson@gmail.com','123','34991393623',null,1,'casa','68','Perto do sesc senat','Freitas Pinho');
+INSERT INTO `tb_user` (`pk_id`,`name`, `email`, `password`,`phone`,`photo`,`address_id`,`address_complement`,`address_number`,`address_reference`,`last_name`) VALUES (2,'User 2','wannisson.freitas.pinho@everis.com','123','34991393623',null,1,'casa','68','Perto do sesc senat','Freitas Pinho');
 
 --Script para pupular a table de Permission x Usuario
 INSERT INTO `tb_user_permission` (`permission_id`,`user_id`) VALUES (1,1);
