@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.wpattern.easy.buying.address.Address;
+import org.wpattern.easy.buying.address.AddressRepository;
 import org.wpattern.easy.buying.city.City;
 import org.wpattern.easy.buying.neighborhood.Neighborhood;
 import org.wpattern.easy.buying.permission.Permission;
@@ -29,6 +30,9 @@ public class UserRepositoryTest extends BaseEntityTest {
     @Autowired
     private PermissionRepository permissionRepository;
 
+    @Autowired
+    private AddressRepository addressRepository;
+
     @Test
     public void findAll_success() {
         List<User> users = userRepository.findAll();
@@ -52,7 +56,7 @@ public class UserRepositoryTest extends BaseEntityTest {
         objUser.setNumero("68");
         objUser.setReferencia("Perto do Sesc senat");
         objUser.setSobreNome("Santos");
-        objUser.setAddress(getEndereco());
+        objUser.setAddress(addressRepository.findOne(1L));
 
         userRepository.save(objUser);
     }
@@ -66,7 +70,12 @@ public class UserRepositoryTest extends BaseEntityTest {
         List<Permission> lstPermission = new ArrayList<Permission>();
         lstPermission.add(permissionRepository.findByRole("ROLE_ADMIN"));
         objUser.setPermissions(lstPermission);
-
+        objUser.setAddress(addressRepository.findOne(1L));
+        objUser.setSobreNome("Freitas");
+        objUser.setReferencia("Perto do sesc senat");
+        objUser.setNumero("68");
+        objUser.setComplemeto("casa");
+        objUser.setPassword("123");
         userRepository.save(objUser);
     }
 

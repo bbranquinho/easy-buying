@@ -35,6 +35,8 @@ public class UserResourceTest extends BaseEntityResourceTest {
 
     private static final String LAST_NAME = "Sobre nome";
 
+    private static final byte[] PHOTO = new byte[100];
+
 
 
     @Test
@@ -47,15 +49,17 @@ public class UserResourceTest extends BaseEntityResourceTest {
                                 PayloadDocumentation.responseFields(
                                         PayloadDocumentation.fieldWithPath("[].id").description(USER_ID),
                                         PayloadDocumentation.fieldWithPath("[].name").description(USER_NAME),
+                                        PayloadDocumentation.fieldWithPath("[].sobreNome").description(LAST_NAME),
                                         PayloadDocumentation.fieldWithPath("[].email").description(EMAIL),
                                         PayloadDocumentation.fieldWithPath("[].password").description(PASSWORD),
                                         PayloadDocumentation.fieldWithPath("[].phone").description(PHONE),
-                                        PayloadDocumentation.fieldWithPath("[].permissions").description(PERMISSION_ENTITY),
-                                        PayloadDocumentation.fieldWithPath("[].address").description(ADDRESS_ID),
+                                        PayloadDocumentation.fieldWithPath("[].photo").description(PHOTO),
                                         PayloadDocumentation.fieldWithPath("[].complemento").description(ADDRESS_COMPLEMENT),
                                         PayloadDocumentation.fieldWithPath("[].numero").description(ADDRESS_NUMBER),
                                         PayloadDocumentation.fieldWithPath("[].referencia").description(ADDRESS_REFERENCE),
-                                        PayloadDocumentation.fieldWithPath("[].sobreNome").description(LAST_NAME)
+                                        PayloadDocumentation.fieldWithPath("[].address").description(ADDRESS_ID),
+                                        PayloadDocumentation.fieldWithPath("[].permissions").description(PERMISSION_ENTITY)
+
                                 )
                         )
                 )

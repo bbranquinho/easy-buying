@@ -25,7 +25,5 @@ INSERT INTO `tb_user` (`pk_id`,`name`, `email`, `password`,`phone`,`address_id`,
 INSERT INTO `tb_user_permission` (`permission_id`,`user_id`) VALUES (1,1);
 INSERT INTO `tb_user_permission` (`permission_id`,`user_id`) VALUES (2,2);
 
-INSERT INTO `tb_person`	VALUES (2,2,'Jardim Europa',38414650,'Uberlândia','MG','Rua Iolanda Alves Figueira',68,'Ativo',2);
 
-INSERT INTO `tb_client` VALUES(2);
 
