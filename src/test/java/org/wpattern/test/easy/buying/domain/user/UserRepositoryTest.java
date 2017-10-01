@@ -3,8 +3,12 @@ package org.wpattern.test.easy.buying.domain.user;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.wpattern.easy.buying.address.Address;
+import org.wpattern.easy.buying.city.City;
+import org.wpattern.easy.buying.neighborhood.Neighborhood;
 import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.permission.PermissionRepository;
+import org.wpattern.easy.buying.state.State;
 import org.wpattern.easy.buying.user.User;
 import org.wpattern.easy.buying.user.UserRepository;
 import org.wpattern.test.easy.buying.utils.BaseEntityTest;
@@ -37,13 +41,18 @@ public class UserRepositoryTest extends BaseEntityTest {
 
     @Test
     public void insert() {
+
         //Usuario
         User objUser = new User();
-
         objUser.setName("Eina");
         objUser.setEmail("eina@gmail.com");
         objUser.setPassword("admin");
-        objUser.setPhone("34992048276");
+        objUser.setPhone("34994546776");
+        objUser.setComplemeto("casa");
+        objUser.setNumero("68");
+        objUser.setReferencia("Perto do Sesc senat");
+        objUser.setSobreNome("Santos");
+        objUser.setAddress(getEndereco());
 
         userRepository.save(objUser);
     }
@@ -59,6 +68,32 @@ public class UserRepositoryTest extends BaseEntityTest {
         objUser.setPermissions(lstPermission);
 
         userRepository.save(objUser);
+    }
+
+    private Address getEndereco() {
+
+        //Estado
+        State state = new State();
+        state.setName("MINAS GERAIS");
+        state.setSymbol("MG");
+
+        //Cidade
+        City city = new City();
+        city.setName("UBERLÂNDIA");
+        city.setState(state);
+
+        //Bairro
+        Neighborhood neighborhood = new Neighborhood();
+        neighborhood.setName("JARDIM EUROPA");
+        neighborhood.setCity(city);
+
+        //Endereço
+        Address address = new Address();
+        address.setName("Rua Iolanda Alves Figueira");
+        address.setCep("38414650");
+        address.setNeighborhood(neighborhood);
+
+        return address;
     }
 
 
