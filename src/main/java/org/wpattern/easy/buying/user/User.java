@@ -53,7 +53,7 @@ public class User extends BaseEntity<Long> {
 	private byte[] photo;
 
 	@Column(name = "address_complement")
-	private String complemeto;
+	private String complemento;
 
 	@Column(name = "address_number")
 	private String numero;
@@ -141,12 +141,12 @@ public class User extends BaseEntity<Long> {
 		this.photo = photo;
 	}
 
-	public String getComplemeto() {
-		return complemeto;
+	public String getComplemento() {
+		return complemento;
 	}
 
-	public void setComplemeto(String complemeto) {
-		this.complemeto = complemeto;
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 
 	public String getNumero() {

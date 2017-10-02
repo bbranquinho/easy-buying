@@ -52,7 +52,7 @@ public class UserRepositoryTest extends BaseEntityTest {
         objUser.setEmail("eina@gmail.com");
         objUser.setPassword("admin");
         objUser.setPhone("34994546776");
-        objUser.setComplemeto("casa");
+        objUser.setComplemento("casa");
         objUser.setNumero("68");
         objUser.setReferencia("Perto do Sesc senat");
         objUser.setSobreNome("Santos");
@@ -74,7 +74,7 @@ public class UserRepositoryTest extends BaseEntityTest {
         objUser.setSobreNome("Freitas");
         objUser.setReferencia("Perto do sesc senat");
         objUser.setNumero("68");
-        objUser.setComplemeto("casa");
+        objUser.setComplemento("casa");
         objUser.setPassword("123");
         userRepository.save(objUser);
     }
