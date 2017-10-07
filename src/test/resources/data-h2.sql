@@ -25,5 +25,14 @@ INSERT INTO `tb_user` (`pk_id`,`name`, `email`, `password`,`phone`,`photo`,`addr
 INSERT INTO `tb_user_permission` (`permission_id`,`user_id`) VALUES (1,1);
 INSERT INTO `tb_user_permission` (`permission_id`,`user_id`) VALUES (2,2);
 
+--Script para pupular a table de product Category
+INSERT INTO `tb_product_category`(`id`,`name`) VALUES (1,'Eletronicos');
 
+--Script para pupular a table de product
+INSERT INTO `tb_product`(`id`, `name`, `description`, `product_category`) VALUES (1, 'Galaxy j5', 'bom celular',1);
 
+--Script para pupular a table de product request
+INSERT INTO `tb_product_request`(`id`, `product_id`, `user_id`, `detail`, `delivery`, `request`) VALUES (1, 1, 1, 'detalhe do request do pedido', '2017-06-09', '2017-06-09');
+
+--Script para pupular a table de supplier
+INSERT INTO `tb_supplier`(`id`, `name`, `description`, `register_date`)	VALUES (1, 'fornecedor 1', 'Fornecedor', '2017-06-09');

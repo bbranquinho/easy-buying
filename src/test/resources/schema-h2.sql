@@ -7,6 +7,10 @@ drop table if exists public.tb_state;
 drop table if exists public.tb_city;
 drop table if exists public.tb_neighborhood;
 drop table if exists public.tb_address;
+drop table if exists public.tb_product_category;
+drop table if exists public.tb_product;
+drop table if exists public.tb_product_request;
+drop table if exists public.tb_supplier;
 
 create table public.tb_permission (
 pk_id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -62,6 +66,42 @@ permission_id INT,
 user_id INT,
 FOREIGN KEY (permission_id) REFERENCES public.tb_permission(pk_id),
 FOREIGN KEY (user_id) REFERENCES public.tb_user(pk_id)
+);
+
+CREATE TABLE public.tb_product_category(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name varchar(45)
+);
+
+CREATE TABLE public.tb_product
+(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name varchar(127) NOT NULL,
+    description varchar(255),
+    product_category int NOT NULL,
+   FOREIGN KEY (product_category) REFERENCES public.tb_product_category(id)
+);
+
+CREATE TABLE public.tb_product_request
+(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    product_id int NOT NULL,
+    user_id int NOT NULL,
+    detail varchar(127)  NOT NULL,
+    delivery date NOT NULL,
+    request date NOT NULL,
+  FOREIGN KEY (product_id) REFERENCES public.tb_product(id),
+  FOREIGN KEY (user_id) REFERENCES public.tb_user(pk_id)
+
+);
+
+CREATE TABLE public.tb_supplier
+(
+    id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name varchar(127) NOT NULL,
+    description varchar(127) NOT NULL,
+    register_date date  NOT NULL,
+    logo longblob
 );
 
 
