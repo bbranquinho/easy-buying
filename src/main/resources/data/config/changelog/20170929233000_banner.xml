@@ -25,7 +25,7 @@
     <changeSet id="2" author="wannisson">
         <addForeignKeyConstraint baseColumnNames="supplier_id"
                                  baseTableName="tb_banner" constraintName="fk_banner_supplier"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_supplier" />
     </changeSet>

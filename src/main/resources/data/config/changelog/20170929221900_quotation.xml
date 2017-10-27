@@ -31,13 +31,13 @@
     <changeSet id="2" author="wannisson">
         <addForeignKeyConstraint baseColumnNames="product_request_id"
                                  baseTableName="tb_quotation" constraintName="fk_product_request_quotation"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_product_request" />
 
         <addForeignKeyConstraint baseColumnNames="supplier_id"
                                  baseTableName="tb_quotation" constraintName="fk_supplier_quotation"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_supplier" />
     </changeSet>

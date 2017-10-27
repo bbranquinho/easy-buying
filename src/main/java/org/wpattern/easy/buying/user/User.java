@@ -73,12 +73,13 @@ public class User extends BaseEntity<Long> {
 	public User() {
 	}
 	
-    public User(String name, String email, String password, String phone) {
+    public User(String name, String email, String password, String phone,String sobreNome) {
     	super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.phone = phone;
+		this.sobreNome = sobreNome;
     }
 
     public User(String name) {

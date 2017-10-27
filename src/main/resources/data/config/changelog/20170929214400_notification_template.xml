@@ -25,13 +25,13 @@
     <changeSet id="2" author="wannisson">
         <addForeignKeyConstraint baseColumnNames="notification_type_id"
                                  baseTableName="tb_notification_template" constraintName="fk_notification_template"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_notification_type" />
 
         <addForeignKeyConstraint baseColumnNames="supplier_id"
                                  baseTableName="tb_notification_template" constraintName="fk_notification_supplier"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_supplier" />
 

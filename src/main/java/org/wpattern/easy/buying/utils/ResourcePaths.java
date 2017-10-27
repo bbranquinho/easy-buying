@@ -20,9 +20,7 @@ public final class ResourcePaths {
     ///////////////////////////////////////////////////////////////
 
 
-    public static final String USER_PATH =  PRIVATE_ROOT_PATH + "/user";
-    
-    public static final String PERMISSION_PATH = PRIVATE_ROOT_PATH + "/permission";
+
 
     public static final String PACKAGEE_PATH = PRIVATE_ROOT_PATH + "/packagee";
 
@@ -71,6 +69,9 @@ public final class ResourcePaths {
     // PUBLIC PATHS
     ///////////////////////////////////////////////////////////////
 
+    public static final String USER_PATH =  PUBLIC_ROOT_PATH + "/user";
+
+    public static final String PERMISSION_PATH = PUBLIC_ROOT_PATH + "/permission";
 
     public static final String LOGIN_PATH = PUBLIC_ROOT_PATH + "/login";
 

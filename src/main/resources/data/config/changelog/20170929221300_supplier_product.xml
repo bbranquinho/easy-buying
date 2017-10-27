@@ -18,13 +18,13 @@
     <changeSet id="2" author="wannisson">
         <addForeignKeyConstraint baseColumnNames="supplier_id"
                                  baseTableName="tb_supplier_product" constraintName="fk_supplier_product_supplier"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_supplier" />
 
         <addForeignKeyConstraint baseColumnNames="product_id"
                                  baseTableName="tb_supplier_product" constraintName="fk_supplier_product_product"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_product" />
     </changeSet>

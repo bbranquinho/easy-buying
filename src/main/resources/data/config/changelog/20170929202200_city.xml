@@ -22,7 +22,7 @@
     <changeSet id="2" author="wannisson">
         <addForeignKeyConstraint baseColumnNames="state_id"
                                  baseTableName="tb_city" constraintName="fk_city_state"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_state" />
 

@@ -65,7 +65,7 @@ public class UserRepositoryTest extends BaseEntityTest {
     @Test
     public void insert_construct() {
         //Usuario
-        User objUser = new User("Wannisson", "wannisson@test.com", "123", "34991393623");
+        User objUser = new User("Wannisson", "wannisson@test.com", "123", "34991393623", "Freitas");
 
         List<Permission> lstPermission = new ArrayList<Permission>();
         lstPermission.add(permissionRepository.findByRole("ROLE_ADMIN"));

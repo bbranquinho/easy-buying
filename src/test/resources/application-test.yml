@@ -1,21 +1,11 @@
-# LOGGING
-logging:
-  file: build/easy-buying.log
-  level:
-    org.wpattern.test.easy.buying: DEBUG
-    org.wpattern.easy.buying: DEBUG
-    org.springframework: INFO
-    org.hibernate: INFO
-
 # DATABASE
 spring:
   datasource:
-    url: jdbc:h2:mem:easy_buying;INIT=runscript from 'classpath:schema-h2.sql'\;runscript from 'classpath:data-h2.sql'
+    url: jdbc:h2:file:./target/easy-buying;DB_CLOSE_DELAY=-1
     username: easy_h2
     password: buying_h2
-    initialize: true
+    driverClassName: org.h2.Driver
   jpa:
-    database: H2
     show-sql: true
     hibernate:
       ddl-auto: none
@@ -27,8 +17,8 @@ security:
 
 # LIQUIBASE
 liquibase:
-  enabled: false
+  enabled: true
   change-log: classpath:data/config/master.xml
-  url: jdbc:postgresql://localhost:5432/easy_buying
-  user: postgres
-  password: admin
+  url: jdbc:h2:file:./target/easy_buying;DB_CLOSE_DELAY=-1
+  user: easy_h2
+  password: buying_h2

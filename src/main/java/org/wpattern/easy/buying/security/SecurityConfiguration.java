@@ -36,9 +36,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     public static final String AUTH_USER = "ROLE_USER";
 
+    public static final String AUTH_CLIENT = "ROLE_CLIENTE";
+
     public static final String AUTH_ADMIN = "ROLE_ADMIN";
 
-    public static final String ROLE_FUNCIONARIO = "ROLE_FUNCIONARIO";
+    public static final String AUTH_FORNECEDOR = "ROLE_FORNECEDOR";
 
     @Autowired
     private UserDetailsService userService;
@@ -68,18 +70,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 // Public (permit all).
                 .antMatchers(ResourcePaths.PUBLIC_ROOT_PATH + ResourcePaths.ALL).permitAll()
-                // Package Authorities.
-                .antMatchers(HttpMethod.GET, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
-                .antMatchers(HttpMethod.POST, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
-                .antMatchers(HttpMethod.PUT, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
-                .antMatchers(HttpMethod.DELETE, ResourcePaths.PACKAGEE_PATH).hasAnyAuthority(AUTH_USER, AUTH_ADMIN)
                 // User Authorities.
-                .antMatchers(HttpMethod.GET, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
-                .antMatchers(HttpMethod.POST, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
-                .antMatchers(HttpMethod.PUT, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
-                .antMatchers(HttpMethod.DELETE, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.GET, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN,AUTH_FORNECEDOR,AUTH_CLIENT)
+                .antMatchers(HttpMethod.POST, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN,AUTH_USER,AUTH_FORNECEDOR,AUTH_CLIENT)
+                .antMatchers(HttpMethod.PUT, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN,AUTH_USER,AUTH_FORNECEDOR,AUTH_CLIENT)
+                .antMatchers(HttpMethod.DELETE, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN,AUTH_CLIENT,AUTH_FORNECEDOR)
                 // Permission Authorities.
-                .antMatchers(HttpMethod.GET, ResourcePaths.PERMISSION_PATH).hasAnyAuthority(AUTH_USER,AUTH_ADMIN)
+                .antMatchers(HttpMethod.GET, ResourcePaths.PERMISSION_PATH).hasAnyAuthority(AUTH_USER,AUTH_ADMIN,AUTH_FORNECEDOR,AUTH_CLIENT)
                 .anyRequest().fullyAuthenticated().and()
                 // Logout configuration.
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher(ResourcePaths.LOGOUT_PATH)).logoutSuccessHandler(headerHandler).and()

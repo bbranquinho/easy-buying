@@ -5,6 +5,6 @@ import org.springframework.context.annotation.Import;
 import org.wpattern.easy.buying.utils.AppConfig;
 
 @Configuration
-@Import(AppConfig.class)
+@Import(value = { AppConfig.class } )
 public class AppTestConfig {
 }

@@ -20,7 +20,7 @@
     <changeSet author="wannisson" id="2">
         <addForeignKeyConstraint baseColumnNames="id_person"
                                  baseTableName="tb_client" constraintName="FK_fc1j6r97k5pwb3joeobrwjcxo"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id_person"
                                  referencedTableName="tb_person" />
     </changeSet>

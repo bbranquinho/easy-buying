@@ -12,8 +12,15 @@ angular.module('easy-buying')
           return 'User';
         break;
 
+        case 'ROLE_CLIENTE':
+          return 'Cliente';
+        break;
+
+        case 'ROLE_FORNECEDOR':
+           return 'Fornecedor';
+         break;
         default:
-          return 'Unknown';
+          return 'Não Informado';
         break;
       };
     };
