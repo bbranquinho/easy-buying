@@ -1,13 +1,14 @@
 package org.wpattern.easy.buying.banner;
 
-import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.utils.BaseEntity;
 
-import javax.persistence.*;
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
-import java.util.List;
 
 
 @Entity
@@ -27,11 +28,6 @@ public class Banner extends BaseEntity<Long> {
     @Size(min = 8, max = 10)
     @Column(name = "expiration", length = 10, nullable = false)
     private Date expiration;
-
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_supplier", joinColumns = @JoinColumn(name = "supplier_id"), inverseJoinColumns = @JoinColumn(name = "supplier_id") )
-    private List<Permission> permissions;
 
 
     public Banner() {

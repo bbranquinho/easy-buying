@@ -1,12 +1,13 @@
 package org.wpattern.easy.buying.supplier_product;
 
-import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.utils.BaseEntity;
 
-import javax.persistence.*;
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_supplier_product")
@@ -24,10 +25,6 @@ public class Supplier_Product extends BaseEntity<Long> {
     @Size(min = 4, max = 12)
     @Column(name = "product_id", length = 12, nullable = false)
     private Integer product_id;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_product", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "product_id") )
-    private List<Permission> permissions;
 
     public Supplier_Product() {
     }

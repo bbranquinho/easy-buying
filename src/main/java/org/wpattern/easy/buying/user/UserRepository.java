@@ -1,12 +1,12 @@
 package org.wpattern.easy.buying.user;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.List;
+
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 	
-	public User findByEmail(String email);
+	public UserEntity findByEmail(String email);
 	
-	public List<User> findByEmailOrName(String email, String name);
+	public List<UserEntity> findByEmailOrName(String email, String name);
 }

@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.wpattern.easy.buying.permission.Permission;
-import org.wpattern.easy.buying.user.User;
+import org.wpattern.easy.buying.user.UserEntity;
 import org.wpattern.easy.buying.user.UserRepository;
 
 
@@ -22,7 +22,7 @@ public class UserDetail implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		User user = this.userRepository.findByEmail(email);
+		UserEntity user = this.userRepository.findByEmail(email);
 
 		if (user == null) {
 			throw new UsernameNotFoundException("User with email \"" + email + "\" was not found");

@@ -1,12 +1,13 @@
 package org.wpattern.easy.buying.city;
 
-import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.utils.BaseEntity;
 
-import javax.persistence.*;
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_city")
@@ -24,11 +25,6 @@ public class City extends BaseEntity<Long> {
     @Size(min = 1, max = 10)
     @Column(name = "State_id", length = 10, nullable = false)
     private Integer state_id;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_neighborhood", joinColumns = @JoinColumn(name = "neighborhood_id"), inverseJoinColumns = @JoinColumn(name = "neighborhood_id") )
-    private List<Permission> permissions;
-
 
     public City() {
     }

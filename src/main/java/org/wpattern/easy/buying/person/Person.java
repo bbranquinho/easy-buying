@@ -1,10 +1,10 @@
 package org.wpattern.easy.buying.person;
 
-import javax.persistence.*;
-
 import org.hibernate.validator.constraints.NotBlank;
-import org.wpattern.easy.buying.user.User;
+import org.wpattern.easy.buying.user.UserEntity;
 import org.wpattern.easy.buying.utils.BaseEntity;
+
+import javax.persistence.*;
 
 
 @Entity
@@ -48,7 +48,7 @@ public abstract class Person extends BaseEntity<Long> {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserEntity user;
 
 
     public String getCep() {
@@ -107,11 +107,11 @@ public abstract class Person extends BaseEntity<Long> {
         this.status = status;
     }
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 }

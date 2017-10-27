@@ -9,13 +9,13 @@ import org.wpattern.easy.buying.utils.ResourcePaths;
 
 @RestController
 @RequestMapping(path = ResourcePaths.USER_PATH)
-public class UserResource extends GenericService<User, Long> {
+public class UserResource extends GenericService<UserEntity, Long> {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public User insert(User user) {
+    public UserEntity insert(UserEntity user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return super.insert(user);
     }

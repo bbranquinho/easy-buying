@@ -1,12 +1,13 @@
 package org.wpattern.easy.buying.state;
 
-import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.utils.BaseEntity;
 
-import javax.persistence.*;
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 
 @Entity
@@ -25,11 +26,6 @@ public class State extends BaseEntity<Long> {
     @Size(min = 1, max = 5)
     @Column(name = "Symbol", length = 5, nullable = false)
     private String symbol;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_city", joinColumns = @JoinColumn(name = "city_id"), inverseJoinColumns = @JoinColumn(name = "city_id") )
-    private List<Permission> permissions;
-
 
     public State() {
     }

@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.permission.PermissionRepository;
-import org.wpattern.easy.buying.user.User;
+import org.wpattern.easy.buying.user.UserEntity;
 import org.wpattern.easy.buying.user.UserRepository;
 import org.wpattern.test.easy.buying.utils.BaseEntityTest;
 
@@ -27,7 +27,7 @@ public class UserRepositoryTest extends BaseEntityTest {
 
     @Test
     public void findAll_success() {
-        List<User> users = userRepository.findAll();
+        List<UserEntity> users = userRepository.findAll();
 
         LOGGER.debug(users);
 
@@ -38,7 +38,7 @@ public class UserRepositoryTest extends BaseEntityTest {
     @Test
     public void insert() {
         //Usuario
-        User objUser = new User();
+        UserEntity objUser = new UserEntity();
 
         objUser.setName("Eina");
         objUser.setEmail("eina@gmail.com");
@@ -52,7 +52,7 @@ public class UserRepositoryTest extends BaseEntityTest {
     @Test
     public void insert_construct() {
         //Usuario
-        User objUser = new User("Wannisson", "wannisson@test.com", "123", "34991393623");
+        UserEntity objUser = new UserEntity("Wannisson", "wannisson@test.com", "123", "34991393623");
 
         List<Permission> lstPermission = new ArrayList<Permission>();
         lstPermission.add(permissionRepository.findByRole("ROLE_ADMIN"));

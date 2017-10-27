@@ -25,11 +25,6 @@ public class Neighborhood extends BaseEntity<Long> {
     @Column(name = "City_id", length = 10, nullable = false)
     private Integer city_id;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_address", joinColumns = @JoinColumn(name = "address_id"), inverseJoinColumns = @JoinColumn(name = "address_id") )
-    private List<Permission> permissions;
-
-
     public Neighborhood() {
     }
 

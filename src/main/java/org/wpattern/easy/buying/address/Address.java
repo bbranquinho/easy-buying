@@ -1,13 +1,13 @@
 package org.wpattern.easy.buying.address;
 
-import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.utils.BaseEntity;
 
-import javax.persistence.*;
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_address")
@@ -31,11 +31,6 @@ public class Address extends BaseEntity<Long> {
     @Size(min = 3, max = 8)
     @Column(name = "Cep", length = 8, nullable = false)
     private String cep;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "user_id") )
-    private List<Permission> permissions;
-
 
     public Address() {
     }

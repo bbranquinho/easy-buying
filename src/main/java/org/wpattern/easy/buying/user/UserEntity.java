@@ -2,7 +2,7 @@ package org.wpattern.easy.buying.user;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.wpattern.easy.buying.permission.PermissionEntity;
+import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.utils.BaseEntity;
 
 import javax.persistence.AttributeOverride;
@@ -48,7 +48,7 @@ public class UserEntity extends BaseEntity<Long> {
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_user_permission", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "permission_id") )
-	private List<PermissionEntity> permissions;
+	private List<Permission> permissions;
 
 
 	public UserEntity() {
@@ -98,11 +98,11 @@ public class UserEntity extends BaseEntity<Long> {
 		this.phone = phone;
 	}
 
-	public List<PermissionEntity> getPermissions() {
+	public List<Permission> getPermissions() {
 		return this.permissions;
 	}
 
-	public void setPermissions(List<PermissionEntity> permissions) {
+	public void setPermissions(List<Permission> permissions) {
 		this.permissions = permissions;
 	}
 }

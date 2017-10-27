@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.permission.PermissionRepository;
-import org.wpattern.easy.buying.user.User;
+import org.wpattern.easy.buying.user.UserEntity;
 import org.wpattern.easy.buying.user.UserRepository;
 import org.wpattern.easy.buying.userpermission.UserPermission;
 import org.wpattern.easy.buying.userpermission.UserPermissionKey;
@@ -46,7 +46,7 @@ public class ClientResource extends GenericService<Client, Long> {
     public Client insert(@RequestBody Client client) {
         client.getUser().setPassword(this.passwordEncoder.encode(client.getUser().getPassword()));
 
-        User user = new User();
+        UserEntity user = new UserEntity();
         user.setEmail(client.getUser().getEmail());
         user.setName(client.getUser().getName());
         user.setPhone(client.getUser().getPhone());
