@@ -9,7 +9,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.wpattern.easy.buying.state.State;
 import org.wpattern.easy.buying.utils.ResourcePaths;
 import org.wpattern.test.easy.buying.utils.BaseEntityResourceTest;
-import org.wpattern.test.easy.buying.utils.BaseEntityTest;
 
 public class CityResourceTest extends BaseEntityResourceTest {
 
@@ -26,7 +25,7 @@ public class CityResourceTest extends BaseEntityResourceTest {
                 .perform(MockMvcRequestBuilders.get(ResourcePaths.CITY_PATH))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(
-                        MockMvcRestDocumentation.document("{method-name",
+                        MockMvcRestDocumentation.document("{method-name}",
                                 PayloadDocumentation.responseFields(
                                         PayloadDocumentation.fieldWithPath("[].id").description(ID),
                                         PayloadDocumentation.fieldWithPath("[].name").description(NAME),

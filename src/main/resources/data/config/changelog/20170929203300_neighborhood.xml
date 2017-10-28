@@ -14,13 +14,13 @@
             <column name="name" type="varchar(127)">
                 <constraints nullable="false" />
             </column>
-            <column name="cuty_id" type="bigint">
+            <column name="city_id" type="bigint">
                 <constraints nullable="false" />
             </column>
         </createTable>
     </changeSet>
     <changeSet id="2" author="wannisson">
-        <addForeignKeyConstraint baseColumnNames="cuty_id"
+        <addForeignKeyConstraint baseColumnNames="city_id"
                                  baseTableName="tb_neighborhood" constraintName="fk_neighborhood_city"
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
@@ -31,7 +31,7 @@
         <insert tableName="tb_neighborhood">
             <column name="id" value="1" />
             <column name="name" value="JARDIM EUROPA" />
-            <column name="cuty_id" value="1" />
+            <column name="city_id" value="1" />
         </insert>
     </changeSet>
 </databaseChangeLog>

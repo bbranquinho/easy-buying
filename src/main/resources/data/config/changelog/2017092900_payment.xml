@@ -30,14 +30,12 @@
     </changeSet>
     <changeSet id="2" author="wannisson">
         <addForeignKeyConstraint baseColumnNames="supplier_id"
-                                 baseTableName="tb_payment" constraintName="fk_payment_supplier"
-                                  onDelete="CASCADE"
+                                 baseTableName="tb_payment" constraintName="fk_payment_supplier" onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_supplier" />
 
         <addForeignKeyConstraint baseColumnNames="payment_feature_id"
-                                 baseTableName="tb_payment" constraintName="fk_payment_feature"
-                                 deferrable="true" initiallyDeferred="true" onDelete="CASCADE"
+                                 baseTableName="tb_payment" constraintName="fk_payment_feature"  onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_payment_feature" />
     </changeSet>

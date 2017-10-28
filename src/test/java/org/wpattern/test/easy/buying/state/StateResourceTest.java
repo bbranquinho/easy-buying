@@ -25,7 +25,7 @@ public class StateResourceTest extends BaseEntityResourceTest {
                 .perform(MockMvcRequestBuilders.get(ResourcePaths.STATE_PATH))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(
-                        MockMvcRestDocumentation.document("{method-name",
+                        MockMvcRestDocumentation.document("{method-name}",
                                 PayloadDocumentation.responseFields(
                                         PayloadDocumentation.fieldWithPath("[].id").description(ID),
                                         PayloadDocumentation.fieldWithPath("[].name").description(NAME),

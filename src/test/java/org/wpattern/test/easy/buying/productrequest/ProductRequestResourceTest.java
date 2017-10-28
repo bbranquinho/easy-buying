@@ -33,7 +33,7 @@ public class ProductRequestResourceTest extends BaseEntityResourceTest {
                 .perform(MockMvcRequestBuilders.get(ResourcePaths.PRODUCT_REQUEST_PATH))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(
-                        MockMvcRestDocumentation.document("{method-name",
+                        MockMvcRestDocumentation.document("{method-name}",
                                 PayloadDocumentation.responseFields(
                                         PayloadDocumentation.fieldWithPath("[].id").description(ID),
                                         PayloadDocumentation.fieldWithPath("[].product").description(PRODUCT),

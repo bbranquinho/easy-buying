@@ -26,7 +26,7 @@ public class AddressResourceTest extends BaseEntityResourceTest {
                 .perform(MockMvcRequestBuilders.get(ResourcePaths.ADDRESS_PATH))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(
-                        MockMvcRestDocumentation.document("{method-name",
+                        MockMvcRestDocumentation.document("{method-name}",
                                 PayloadDocumentation.responseFields(
                                         PayloadDocumentation.fieldWithPath("[].id").description(ADDRES_ID),
                                         PayloadDocumentation.fieldWithPath("[].name").description(ADDRESS_NAME),
