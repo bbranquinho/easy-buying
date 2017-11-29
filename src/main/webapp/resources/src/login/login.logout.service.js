@@ -57,5 +57,7 @@ angular.module('easy-buying')
       }
     };
 
+
+
     return serviceFactory;
   });

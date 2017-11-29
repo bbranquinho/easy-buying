@@ -28,7 +28,27 @@ angular.module('easy-buying', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCook
       })
       .when('/registrar_user',{
         templateUrl: 'src/user/form_user_new.html',
-        controller: 'UserCtrl'})
+        controller: 'UserCtrl'
+      })
+      .when('/produto',{
+              templateUrl: 'src/produtos/produtos.html',
+              controller: 'ProdutoCtrl'
+      })
+      .when('/orcamento',{
+                    templateUrl: 'src/orcamentos/orcamentos.html',
+                    controller: 'OrcamentoCtrl'
+            })
+       .when('/pedido',{
+                           templateUrl: 'src/pedidos/pedidos.html',
+                           controller: 'PedidoCtrl'
+                   })
+        .when('/profile',{
+                                   templateUrl: 'src/profile/profile.html',
+                                   controller: 'ProfileCtrl'
+                           })
+       .when('/categoria',{
+        templateUrl: 'src/categoria/categoria.html',
+        controller: 'CategoriaCtrl'})
       .otherwise({
         redirectTo: '/'
       });

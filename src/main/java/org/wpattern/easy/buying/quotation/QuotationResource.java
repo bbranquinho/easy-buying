@@ -1,19 +1,19 @@
-package org.wpattern.easy.buying.productrequest;
+package org.wpattern.easy.buying.quotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.wpattern.easy.buying.security.CurrentUser;
+import org.wpattern.easy.buying.supplier.Supplier;
+import org.wpattern.easy.buying.supplier.SupplierRepository;
 import org.wpattern.easy.buying.user.UserRepository;
 import org.wpattern.easy.buying.utils.GenericService;
 import org.wpattern.easy.buying.utils.ResourcePaths;
 
-import java.util.Date;
-
 @RestController
-@RequestMapping(path = ResourcePaths.PRODUCT_REQUEST_PATH)
-public class ProductRequestResource extends GenericService<ProductRequest, Long> {
+@RequestMapping(path = ResourcePaths.QUOTATION_PATH)
+public class QuotationResource extends GenericService<Quotation, Long> {
 
     @Autowired
     private CurrentUser currentUser;
@@ -22,14 +22,18 @@ public class ProductRequestResource extends GenericService<ProductRequest, Long>
     private UserRepository userRepository;
 
     @Autowired
-    private ProductRequestRepository productRequestRepository;
+    private QuotationResource quotationResource;
+
+    @Autowired
+    private SupplierRepository supplier;
+
 
     @Override
-    public ProductRequest insert(@RequestBody ProductRequest productRequest) {
-        productRequest.setUser(this.userRepository.findByEmail(currentUser.getActiveUser().getEmail()));
-        productRequest.setRequest(new Date());
+    public Quotation insert(@RequestBody Quotation  quotation) {
+        quotation.setSupplier(this.supplier.getOne(1L));
 
-        return super.insert(productRequest);
-    }
+        return super.insert(quotation);
+
+}
 
 }

@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.wpattern.easy.buying.address.Address;
 import org.wpattern.easy.buying.permission.Permission;
 
+import org.wpattern.easy.buying.supplier.Supplier;
 import org.wpattern.easy.buying.utils.BaseEntity;
 
 
@@ -69,17 +70,22 @@ public class User extends BaseEntity<Long> {
 	@JoinTable(name = "tb_user_permission", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "permission_id") )
 	private List<Permission> permissions;
 
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "tb_employee", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "supplier_id") )
+	private List<Supplier> suppliers;
+
 
 	public User() {
 	}
 	
-    public User(String name, String email, String password, String phone,String sobreNome) {
+    public User(String name, String email, String password, String phone,String sobreNome,List<Supplier> supplier) {
     	super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.phone = phone;
 		this.sobreNome = sobreNome;
+		this.suppliers = supplier;
     }
 
     public User(String name) {
@@ -172,5 +178,13 @@ public class User extends BaseEntity<Long> {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public List<Supplier> getSuppliers() {
+		return suppliers;
+	}
+
+	public void setSuppliers(List<Supplier> suppliers) {
+		this.suppliers = suppliers;
 	}
 }

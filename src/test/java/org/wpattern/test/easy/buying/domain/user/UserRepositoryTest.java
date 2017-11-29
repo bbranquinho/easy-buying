@@ -10,6 +10,7 @@ import org.wpattern.easy.buying.neighborhood.Neighborhood;
 import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.permission.PermissionRepository;
 import org.wpattern.easy.buying.state.State;
+import org.wpattern.easy.buying.supplier.Supplier;
 import org.wpattern.easy.buying.user.User;
 import org.wpattern.easy.buying.user.UserRepository;
 import org.wpattern.test.easy.buying.utils.BaseEntityTest;
@@ -65,7 +66,8 @@ public class UserRepositoryTest extends BaseEntityTest {
     @Test
     public void insert_construct() {
         //Usuario
-        User objUser = new User("Wannisson", "wannisson@test.com", "123", "34991393623", "Freitas");
+        List<Supplier> lstSuppliers = new ArrayList<Supplier>();
+        User objUser = new User("Wannisson", "wannisson@test.com", "123", "34991393623", "Freitas",lstSuppliers);
 
         List<Permission> lstPermission = new ArrayList<Permission>();
         lstPermission.add(permissionRepository.findByRole("ROLE_ADMIN"));

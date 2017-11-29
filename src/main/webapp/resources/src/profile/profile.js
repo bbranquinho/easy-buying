@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('easy-buying')
-  .controller('UserCtrl', function($scope, ngNotify, RestSrv, SERVICE_PATH) {
+  .controller('ProfileCtrl', function($scope, ngNotify, RestSrv, SERVICE_PATH) {
     //$scope.user = {};
     //mock user
     $scope.user = {name: 'Valentine',
@@ -81,22 +81,4 @@ angular.module('easy-buying')
       });
     });
 
-
-    $scope.logout = function() {
-          LoginLogoutSrv.logout();
-        };
-
-         $scope.hasAnyPermission = function(authorities) {
-              var hasPermission = false;
-
-              $rootScope.authDetails.permissions.forEach(function(permission) {
-                authorities.forEach(function(authority) {
-                  if (permission.authority === authority) {
-                    hasPermission = true;
-                  }
-                });
-              });
-
-              return hasPermission;
-            };
   });

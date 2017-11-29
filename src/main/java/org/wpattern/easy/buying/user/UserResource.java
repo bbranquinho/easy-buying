@@ -2,11 +2,10 @@ package org.wpattern.easy.buying.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.permission.PermissionRepository;
+import org.wpattern.easy.buying.security.CurrentUser;
 import org.wpattern.easy.buying.utils.GenericService;
 import org.wpattern.easy.buying.utils.ResourcePaths;
 
@@ -22,6 +21,7 @@ public class UserResource extends GenericService<User, Long> {
 
     @Autowired
     private PermissionRepository permissionRepository;
+
 
     @Override
     public User insert(@RequestBody User user) {
