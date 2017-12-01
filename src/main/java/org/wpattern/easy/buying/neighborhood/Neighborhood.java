@@ -16,7 +16,7 @@ public class Neighborhood extends BaseEntity<Long> {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "cuty_id", nullable = false)
+    @JoinColumn(name = "city_id", nullable = false)
     private City city;
 
     public String getName() {

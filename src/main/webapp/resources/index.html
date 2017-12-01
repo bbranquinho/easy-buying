@@ -60,7 +60,7 @@
     <div class="search-icon">
         <i class="material-icons">search</i>
     </div>
-    <input type="text" placeholder="START TYPING...">
+    <input type="text" placeholder="Encontrar um Produto...">
     <div class="close-search">
         <i class="material-icons">close</i>
     </div>
@@ -79,9 +79,13 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Call Search -->
                 <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                <li><a href="#/login" class="dropdown-toggle" type="input" data-toggle="dropdown" role="button">
+                    <i class="material-icons">input</i>
+                </a></li>
                 <!-- #END# Call Search -->
                 <!-- Notifications -->
-                <li class="dropdown">
+                <li class="dropdown" style="Display:none">
+
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" ng-show="!authDetails.authenticated">
                         <i class="material-icons">notifications</i>
                         <span class="label-count">7</span>
@@ -190,7 +194,7 @@
                 </li>
                 <!-- #END# Notifications -->
                 <!-- Tasks -->
-                <li class="dropdown">
+                <li class="dropdown" style="Display:none">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                         <i class="material-icons">flag</i>
                         <span class="label-count">9</span>
@@ -267,13 +271,13 @@
                     </ul>
                 </li>
                 <!-- #END# Tasks -->
-                <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+
             </ul>
         </div>
     </div>
 </nav>
 <!-- #Top Bar -->
-<section ng-show="!authDetails.authenticated">
+<section ng-show="authDetails.authenticated">
     <!-- Left Sidebar -->
     <aside id="leftsidebar" class="sidebar">
         <!-- User Info -->

@@ -4,6 +4,7 @@ package org.wpattern.test.easy.buying.productrequest;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.wpattern.easy.buying.product.ProductRepository;
 import org.wpattern.easy.buying.product_category.ProductCategoryRepository;
 import org.wpattern.easy.buying.productrequest.ProductRequest;
@@ -31,6 +32,7 @@ public class ProductRequestRepositoryTest extends BaseEntityTest {
     private UserRepository userRepository;
 
     @Test
+    @Transactional
     public void findAll_success() {
         List<ProductRequest> productRequestList = productRequestRepository.findAll();
 

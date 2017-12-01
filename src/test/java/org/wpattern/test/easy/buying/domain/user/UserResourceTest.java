@@ -8,6 +8,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.wpattern.easy.buying.address.Address;
 import org.wpattern.easy.buying.permission.Permission;
+import org.wpattern.easy.buying.supplier.Supplier;
 import org.wpattern.easy.buying.utils.ResourcePaths;
 import org.wpattern.test.easy.buying.utils.BaseEntityResourceTest;
 
@@ -37,6 +38,8 @@ public class UserResourceTest extends BaseEntityResourceTest {
 
     private static final Address ADDRESS_ID = new Address();
 
+    private static final Supplier SUPPLIERS = new Supplier();
+
 
     @Test
     public void findAll_success() throws Exception {
@@ -57,7 +60,8 @@ public class UserResourceTest extends BaseEntityResourceTest {
                                         PayloadDocumentation.fieldWithPath("[].numero").description(ADDRESS_NUMBER),
                                         PayloadDocumentation.fieldWithPath("[].referencia").description(ADDRESS_REFERENCE),
                                         PayloadDocumentation.fieldWithPath("[].address").description(ADDRESS_ID),
-                                        PayloadDocumentation.fieldWithPath("[].permissions").description(PERMISSION_ENTITY)
+                                        PayloadDocumentation.fieldWithPath("[].permissions").description(PERMISSION_ENTITY),
+                                        PayloadDocumentation.fieldWithPath("[].suppliers").description(SUPPLIERS)
 
                                 )
                         )

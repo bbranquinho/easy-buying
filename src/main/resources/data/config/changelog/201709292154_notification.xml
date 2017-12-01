@@ -27,7 +27,7 @@
                                  referencedTableName="tb_quotation" />
 
         <addForeignKeyConstraint baseColumnNames="notification_template_id"
-                                 baseTableName="tb_notification" constraintName="fk_notification_template"
+                                 baseTableName="tb_notification" constraintName="fk_notification"
                                   onDelete="CASCADE"
                                  onUpdate="RESTRICT" referencedColumnNames="id"
                                  referencedTableName="tb_notification_template" />

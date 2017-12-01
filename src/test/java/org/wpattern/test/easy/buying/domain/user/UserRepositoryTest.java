@@ -1,8 +1,11 @@
 package org.wpattern.test.easy.buying.domain.user;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.event.TransactionalEventListener;
 import org.wpattern.easy.buying.address.Address;
 import org.wpattern.easy.buying.address.AddressRepository;
 import org.wpattern.easy.buying.city.City;
@@ -35,8 +38,13 @@ public class UserRepositoryTest extends BaseEntityTest {
     private AddressRepository addressRepository;
 
     @Test
+    @Transactional
     public void findAll_success() {
         List<User> users = userRepository.findAll();
+
+        for(User user : users){
+            Hibernate.initialize(user.getSuppliers());
+        }
 
         LOGGER.debug(users);
 
