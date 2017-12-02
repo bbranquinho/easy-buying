@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <!-- Draggable Handles -->
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        CATEGORIAS
+                    </h2>
+
+                    <ul class="header-dropdown m-r--8">
+                        <button type="button" class="btn btn-orange  waves-effect  waves-float right" data-toggle="modal" data-target="#defaultModal">
+                            <i class="material-icons">add</i>
+                        </button>
+
+                    </ul>
+                </div>
+                <div class="body">
+                    <div class="clearfix m-b-20">
+                        <div class="dd nestable-with-handle">
+                            <ol class="dd-list" ng-repeat="categoria in categorias">
+                                <li class="dd-item dd3-item" data-id="{{categoria.id}}">
+                                    <div class="dd-handle dd3-handle"></div>
+                                    <div class="dd3-content">{{categoria.name}}</div>
+                                </li>
+
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #END# Draggable Handles -->
+
+    <!-- Default Size -->
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Nova Categoria</h4>
+                </div>
+                <form id="form_validation" ng-submit="saveCategoria(categoria)">
+                <div class="modal-body">
+                    <input type="text" placeholder="Nome da Categoria" class="form-control" name="name" ng-model="categoria.name" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-link waves-effect">SALVAR</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCELAR</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</div>

@@ -7,11 +7,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.wpattern.easy.buying.product.Product;
+import org.wpattern.easy.buying.supplier.Supplier;
 import org.wpattern.easy.buying.user.User;
 import org.wpattern.easy.buying.utils.ResourcePaths;
 import org.wpattern.test.easy.buying.utils.BaseEntityResourceTest;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ProductRequestResourceTest extends BaseEntityResourceTest {
 
@@ -27,6 +30,7 @@ public class ProductRequestResourceTest extends BaseEntityResourceTest {
 
     private static final Date REQUEST = new Date(2017, 10, 06);
 
+
     @Test
     public void findAll_succes() throws Exception {
         mockMvc
@@ -41,6 +45,7 @@ public class ProductRequestResourceTest extends BaseEntityResourceTest {
                                         PayloadDocumentation.fieldWithPath("[].detail").description(DETAIL),
                                         PayloadDocumentation.fieldWithPath("[].delivery").description(DELIVERY),
                                         PayloadDocumentation.fieldWithPath("[].request").description(REQUEST)
+
 
                                 )
                         )

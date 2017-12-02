@@ -1,10 +1,12 @@
 package org.wpattern.easy.buying.supplier;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.wpattern.easy.buying.user.User;
 import org.wpattern.easy.buying.utils.BaseEntity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_supplier")

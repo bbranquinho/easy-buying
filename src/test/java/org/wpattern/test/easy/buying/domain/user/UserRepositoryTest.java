@@ -1,8 +1,11 @@
 package org.wpattern.test.easy.buying.domain.user;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.event.TransactionalEventListener;
 import org.wpattern.easy.buying.address.Address;
 import org.wpattern.easy.buying.address.AddressRepository;
 import org.wpattern.easy.buying.city.City;
@@ -10,6 +13,7 @@ import org.wpattern.easy.buying.neighborhood.Neighborhood;
 import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.permission.PermissionRepository;
 import org.wpattern.easy.buying.state.State;
+import org.wpattern.easy.buying.supplier.Supplier;
 import org.wpattern.easy.buying.user.User;
 import org.wpattern.easy.buying.user.UserRepository;
 import org.wpattern.test.easy.buying.utils.BaseEntityTest;
@@ -34,8 +38,13 @@ public class UserRepositoryTest extends BaseEntityTest {
     private AddressRepository addressRepository;
 
     @Test
+    @Transactional
     public void findAll_success() {
         List<User> users = userRepository.findAll();
+
+        for(User user : users){
+            Hibernate.initialize(user.getSuppliers());
+        }
 
         LOGGER.debug(users);
 
@@ -65,7 +74,8 @@ public class UserRepositoryTest extends BaseEntityTest {
     @Test
     public void insert_construct() {
         //Usuario
-        User objUser = new User("Wannisson", "wannisson@test.com", "123", "34991393623", "Freitas");
+        List<Supplier> lstSuppliers = new ArrayList<Supplier>();
+        User objUser = new User("Wannisson", "wannisson@test.com", "123", "34991393623", "Freitas",lstSuppliers);
 
         List<Permission> lstPermission = new ArrayList<Permission>();
         lstPermission.add(permissionRepository.findByRole("ROLE_ADMIN"));
