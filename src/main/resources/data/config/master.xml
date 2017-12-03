@@ -30,5 +30,6 @@
     <include file="data/config/changelog/20170929234800_payment_feature.xml" />
     <include file="data/config/changelog/2017092900_payment.xml" />
     <include file="data/config/changelog/201710081535000_insert_role.xml" />
+    <include file="data/config/changelog/201712031118_refactor_notification.xml" />
 
 </databaseChangeLog>
