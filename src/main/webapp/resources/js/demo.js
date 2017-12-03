@@ -77,6 +77,7 @@ function activateNotificationAndTasksScroll() {
     });
 }
 
+
 //Google Analiytics ======================================================================================
 addLoadEvent(loadTracking);
 var trackingId = 'UA-30038099-6';
@@ -102,6 +103,7 @@ function loadTracking() {
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', trackingId, 'auto');
-    ga('send', 'pageview');
+    //ga('send', 'pageview');
 }
+
 //========================================================================================================

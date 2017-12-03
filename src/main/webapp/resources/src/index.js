@@ -67,3 +67,4 @@ angular.module('easy-buying', ['checklist-model', 'ngNotify', 'ngRoute', 'ngCook
 
     LoginLogoutSrv.verifyAuth();
   });
+

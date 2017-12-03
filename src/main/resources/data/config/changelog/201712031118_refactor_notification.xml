@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet author="wannisson" id="1">
+
+        <addColumn catalogName="cat"
+                   schemaName="public"
+                   tableName="tb_notification">
+            <column name="remetente" type="varchar(1024)"/>
+            <column name="destinatario" type="varchar(1024)"/>
+            <column name="cc" type="varchar(1024)"/>
+            <column name="subject" type="varchar(127)"/>
+            <column name="visualized" type="boolean" />
+
+        </addColumn>
+
+
+
+    </changeSet>
+
+
+    <changeSet author="wannisson" id="2">
+        <update catalogName="cat"
+                schemaName="public"
+                tableName="tb_notification">
+            <column name="remetente" value="wannisson@gmail.com"/>
+            <column name="destinatario" value="eina.santos@yahoo.com.br"/>
+            <column name="cc" value="wannisson.freitas.pinho@everis.com,jose@email.com"/>
+            <column name="subject" value="Você tem uma nova Mensagem"/>
+            <where>quotation_id = 1 and notification_template_id = 1</where>
+        </update>
+    </changeSet>
+
+
+    <changeSet id="3" author="wannisson">
+        <update catalogName="cat"
+                schemaName="public"
+                tableName="tb_notification_template">
+            <column name="default_message" value="template"/>
+            <where>id = 1</where>
+        </update>
+    </changeSet>
+
+
+
+
+
+</databaseChangeLog>
