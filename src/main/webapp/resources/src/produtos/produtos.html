@@ -25,7 +25,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="produto in produtos">
+                    <tr ng-repeat="produto in produtos" ng-click="editProduto(produto)" data-toggle="modal" data-target="#defaultModal">
                         <th scope="row">{{produto.id}}</th>
                         <td>{{produto.name}}</td>
                         <td>{{produto.description}}</td>
@@ -56,9 +56,9 @@
                             <b>Categoria</b>
                         </p>
                         <select class="form-control show-tick" id="categoria" ng-model="produto.productCategory.id" required data-error="Selecione uma Categoria" tabindex="1" data-live-search="true" >
-                            <option value="" selected="selected" > Selecione uma Categoria....</option>
                             <option value="{{categoria.id}}" ng-repeat="categoria in categorias">{{categoria.name}}</option>
                         </select>
+
                     </div>
 
                     <div class="modal-body">
@@ -66,8 +66,15 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-link waves-effect">SALVAR</button>
-                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCELAR</button>
+                        <button type="submit" class="btn btn-success waves-effect">
+                            <i class="material-icons">save</i>
+                        </button>
+                        <button type="button" class="btn btn-danger waves-effect" ng-click="deleteProduto(produto)" ng-show="produto.id" data-dismiss="modal">
+                            <i class="material-icons">delete</i>
+                        </button>
+                        <button type="button" class="btn btn-orange waves-effect" data-dismiss="modal">
+                            <i class="material-icons">cancel</i>
+                        </button>
                     </div>
                 </form>
             </div>

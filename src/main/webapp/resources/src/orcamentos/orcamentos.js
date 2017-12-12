@@ -60,5 +60,4 @@ angular.module('easy-buying')
         $scope.orcamentos = data;
     });
 
-
   });

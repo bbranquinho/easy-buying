@@ -4,11 +4,7 @@ angular.module('easy-buying')
   .controller('UserCtrl', function($scope, ngNotify, RestSrv, SERVICE_PATH) {
     //$scope.user = {};
     //mock user
-    $scope.user = {name: 'Valentine',
-                   sobreNome: 'Melton',
-                   email: 'mi@Donec.edu',
-                   phone: '34975626450',
-                   password: 'IWL65DAK1DY'};
+    $scope.user = {};
 
 
     $scope.users = [];

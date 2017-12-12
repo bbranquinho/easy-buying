@@ -6,7 +6,7 @@
                 <div class="header">
                     <h2>
                         MEUS PEDIDOS
-
+                        <h6>*Seu pedido não poderá ser alterado, caso necessário realizar um novo pedido...</h6>
                     </h2>
                     <ul class="header-dropdown m-r--5">
                         <button type="button" class="btn btn-orange  waves-effect  waves-float right" data-toggle="modal" data-target="#defaultModal">
@@ -30,8 +30,8 @@
                             <th scope="row">{{pedido.id}}</th>
                             <td>{{pedido.product.name}}</td>
                             <td>{{pedido.detail}}</td>
-                            <td>{{pedido.delivery}}</td>
-                            <td>{{pedido.request}}</td>
+                            <td>{{pedido.delivery | date: 'dd-MM-yyyy'}}</td>
+                            <td>{{pedido.request  | date: 'dd-MM-yyyy'}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -63,21 +63,25 @@
                         <input type="text" placeholder="Detalhes do Pedido" rows="3" class="form-control" name="detail" ng-model="pedido.detail" required/>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <b>Data Entrega</b>
                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="material-icons">date_range</i>
                                             </span>
                             <div class="form-line">
-                                <input type="text" class="form-control date" placeholder="Ex: 30/07/2016" ng-model="pedido.delivery">
+                                <input type="text" class="datepicker form-control" placeholder="Escolha data Validade..." ng-model="pedido.delivery" >
                             </div>
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-link waves-effect">SALVAR</button>
-                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCELAR</button>
+                        <button type="submit" class="btn btn-success waves-effect">
+                            <i class="material-icons">save</i>
+                        </button>
+                        <button type="button" class="btn btn-orange waves-effect" data-dismiss="modal">
+                            <i class="material-icons">cancel</i>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -87,3 +91,6 @@
 
 
 </div>
+
+<link href="plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+<script src="plugins/momentjs/moment.js"></script>
