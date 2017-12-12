@@ -19,7 +19,7 @@
                     <div class="clearfix m-b-20">
                         <div class="dd nestable-with-handle">
                             <ol class="dd-list" ng-repeat="categoria in categorias">
-                                <li class="dd-item dd3-item" data-id="{{categoria.id}}" ng-click="editCategoria(categoria)" data-toggle="modal" data-target="#defaultModal">
+                                <li class="dd-item dd3-item" data-id="{{categoria.id}}">
                                     <div class="dd-handle dd3-handle"></div>
                                     <div class="dd3-content">{{categoria.name}}</div>
                                 </li>
@@ -45,15 +45,8 @@
                     <input type="text" placeholder="Nome da Categoria" class="form-control" name="name" ng-model="categoria.name" required>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success waves-effect">
-                        <i class="material-icons">save</i>
-                    </button>
-                    <button type="button" class="btn btn-danger waves-effect" ng-click="deleteCategoria(categoria)">
-                        <i class="material-icons">delete</i>
-                    </button>
-                    <button type="button" class="btn btn-orange waves-effect" data-dismiss="modal">
-                        <i class="material-icons">cancel</i>
-                    </button>
+                    <button type="submit" class="btn btn-link waves-effect">SALVAR</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCELAR</button>
                 </div>
                 </form>
             </div>

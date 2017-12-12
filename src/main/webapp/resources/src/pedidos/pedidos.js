@@ -59,4 +59,6 @@ angular.module('easy-buying')
     RestSrv.find(produtoUrl, function(data){
         $scope.produtos = data;
     });
+
+
   });

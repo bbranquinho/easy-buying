@@ -1,8 +1,0 @@
-Ola {{user}},
-Você recebeu um novo pedido de Orçamento em {{today}}.
-
-{{user}}, esta solicitando um orçamento de um(a) {{product}}.
-
-
-Obrigado,
-EASY-BUYING!

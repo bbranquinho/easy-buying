@@ -17,12 +17,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
-  mail:
-    host: localhost
-    port: 25
-    protocol: smtp
-    defaultEncoding: UTF-8
-    banner-mode: off
 
 # SECURITY
 security:
@@ -36,5 +30,3 @@ liquibase:
   url: jdbc:postgresql://localhost:5432/easy_buying
   user: postgres
   password: admin
-
-
