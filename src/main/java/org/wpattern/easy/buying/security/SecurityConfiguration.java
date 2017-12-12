@@ -71,10 +71,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // Public (permit all).
                 .antMatchers(ResourcePaths.PUBLIC_ROOT_PATH + ResourcePaths.ALL).permitAll()
                 // User Authorities.
-                .antMatchers(HttpMethod.GET, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN,AUTH_FORNECEDOR,AUTH_CLIENT)
-                .antMatchers(HttpMethod.POST, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN,AUTH_USER,AUTH_FORNECEDOR,AUTH_CLIENT)
-                .antMatchers(HttpMethod.PUT, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN,AUTH_USER,AUTH_FORNECEDOR,AUTH_CLIENT)
-                .antMatchers(HttpMethod.DELETE, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN,AUTH_CLIENT,AUTH_FORNECEDOR)
+                .antMatchers(HttpMethod.GET, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.POST, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.PUT, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.DELETE, ResourcePaths.USER_PATH).hasAnyAuthority(AUTH_ADMIN)
                 // Permission Authorities.
                 .antMatchers(HttpMethod.GET, ResourcePaths.PERMISSION_PATH).hasAnyAuthority(AUTH_USER,AUTH_ADMIN,AUTH_FORNECEDOR,AUTH_CLIENT)
 
@@ -83,6 +83,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, ResourcePaths.PRODUCT_PATH).hasAnyAuthority(AUTH_ADMIN)
                 .antMatchers(HttpMethod.PUT, ResourcePaths.PRODUCT_PATH).hasAnyAuthority(AUTH_ADMIN)
                 .antMatchers(HttpMethod.DELETE, ResourcePaths.PRODUCT_PATH).hasAnyAuthority(AUTH_ADMIN)
+
+                //Notification_type.
+                .antMatchers(HttpMethod.GET, ResourcePaths.NOTIFICATION_TYPE_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.POST, ResourcePaths.NOTIFICATION_TYPE_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.PUT, ResourcePaths.NOTIFICATION_TYPE_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.DELETE, ResourcePaths.NOTIFICATION_TYPE_PATH).hasAnyAuthority(AUTH_ADMIN)
+
+
+                // Notification Template.
+                .antMatchers(HttpMethod.GET, ResourcePaths.NOTIFICATION_TEMPLATE_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.POST, ResourcePaths.NOTIFICATION_TEMPLATE_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.PUT, ResourcePaths.NOTIFICATION_TEMPLATE_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.DELETE, ResourcePaths.NOTIFICATION_TEMPLATE_PATH).hasAnyAuthority(AUTH_ADMIN)
+
+                // Authorities.
+                .antMatchers(HttpMethod.GET, ResourcePaths.NOTIFICATION_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.POST, ResourcePaths.NOTIFICATION_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.PUT, ResourcePaths.NOTIFICATION_PATH).hasAnyAuthority(AUTH_ADMIN)
+                .antMatchers(HttpMethod.DELETE, ResourcePaths.NOTIFICATION_PATH).hasAnyAuthority(AUTH_ADMIN)
+
+
 
                 .anyRequest().fullyAuthenticated().and()
                 // Logout configuration.
