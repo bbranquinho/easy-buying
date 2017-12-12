@@ -1,13 +1,10 @@
 package org.wpattern.easy.buying.quotation;
 
-import org.wpattern.easy.buying.notification.Notification;
-import org.wpattern.easy.buying.permission.Permission;
 import org.wpattern.easy.buying.productrequest.ProductRequest;
 import org.wpattern.easy.buying.supplier.Supplier;
 import org.wpattern.easy.buying.utils.BaseEntity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_quotation")
@@ -71,6 +68,4 @@ public class Quotation extends BaseEntity<Long> {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-
-
 }

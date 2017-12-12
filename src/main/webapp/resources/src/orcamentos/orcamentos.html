@@ -6,7 +6,6 @@
                 <div class="header">
                     <h2>
                         MEUS ORÇAMENTOS
-                        <h6>*Seu Orçamento não poderá ser alterado, caso necessário realizar um novo Orçamento...</h6>
 
                     </h2>
                     <ul class="header-dropdown m-r--5">
@@ -23,15 +22,15 @@
                             <th>NOME PRODUTO</th>
                             <th>PREÇO UNITARIO</th>
                             <th>PREÇO TOTAL</th>
-                            <th>QTD</th>
+                            <th>QUANTIDADE</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="orcamento in orcamentos">
                             <th scope="row">{{orcamento.id}}</th>
                             <td>{{orcamento.productRequest.product.name}}</td>
-                            <td>{{orcamento.unitary_price | currency:'R$ ':2}}</td>
-                            <td>{{orcamento.total_price   | currency:'R$ ':2}}</td>
+                            <td>{{orcamento.unitary_price}}</td>
+                            <td>{{orcamento.total_price}}</td>
                             <td>{{orcamento.quantity}}</td>
                         </tr>
                         </tbody>
@@ -60,31 +59,31 @@
                         </select>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                     <b>Preço Unitario)</b>
                     <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="material-icons">attach_money</i>
                                             </span>
                         <div class="form-line">
-                            <input type="text" class="form-control money-dollar" placeholder="Ex: R$ 99,99" ng-model="orcamento.unitary_price">
+                            <input type="text" class="form-control money-dollar" placeholder="Ex: 99,99 $" ng-model="orcamento.unitary_price">
                         </div>
                     </div>
                 </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <b>Preço Total)</b>
                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="material-icons">attach_money</i>
                                             </span>
                             <div class="form-line">
-                                <input type="text" class="form-control money-dollar" placeholder="Ex: R$ 99,99" ng-model="orcamento.total_price = orcamento.unitary_price * orcamento.quantity" disabled>
+                                <input type="text" class="form-control money-dollar" placeholder="Ex: 99,99 $" ng-model="orcamento.total_price">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <b>Quantidade</b>
                     <div class="input-group">
 
@@ -95,12 +94,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success waves-effect">
-                            <i class="material-icons">save</i>
-                        </button>
-                        <button type="button" class="btn btn-orange waves-effect" data-dismiss="modal">
-                            <i class="material-icons">cancel</i>
-                        </button>
+                        <button type="submit" class="btn btn-link waves-effect">SALVAR</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CANCELAR</button>
                     </div>
 
                 </form>
